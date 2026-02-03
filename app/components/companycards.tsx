@@ -3,6 +3,7 @@
 import { motion } from 'motion/react';
 import type { Company } from '@/store/questiondata';
 import ButtonArrow from '../components/buttonarrow';
+import Button from '../components/button';
 
 type CompanyInfoProps = {
     relatedCompanies: Company[];
@@ -69,12 +70,22 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 before making any investment decisions. Just a friendly slice of advice from
                 P.I.E.`}
             </span>
+            <div className="flex flex-col items-center pb-40">
+                <ButtonArrow
+                    direction="back"
+                    href="/value-inv"
+                    className="mt-20 mb-16"
+                />
 
-            <ButtonArrow
-                direction="back"
-                href="/value-inv"
-                className="mt-20 pb-20 mx-auto"
-            />
+                <Button
+                    className="
+                    mx-auto px-7 py-2 text-xl font-semibold text-white border-2
+                    border-white overflow-hidden relative mt-10 flex items-center gap-3
+                    "
+                    href="/question-one">
+                    Explore More
+                </Button>
+            </div>
         </div>
     )
 }
