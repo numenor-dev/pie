@@ -4,8 +4,11 @@ import { Toaster } from 'react-hot-toast'
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "PIE - Personalized Investment Engine",
-  description: "A tool to learn about passion and value investing."
+  title: "Personalized Investment Engine",
+  description: "A tool to learn about passion and value investing.",
+  openGraph: {
+    images: ["/invest.png"],
+  },
 };
 
 const ubuntu = Ubuntu({

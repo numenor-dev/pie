@@ -52,7 +52,7 @@ export default function QuestionOne() {
                     "
                     id="hobbies"
                     formNoValidate
-                    placeholder="Surfing, hiking, gaming, etc."
+                    placeholder="I enjoy surfing and hiking"
                 />
             </label>
             <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-52">
