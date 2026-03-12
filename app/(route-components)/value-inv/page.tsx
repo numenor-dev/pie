@@ -18,9 +18,9 @@ export default function ValueInvesting() {
     };
 
     return (
-        <div className="lg:max-w-7xl max-w-xl flex flex-col mx-auto md:pt-24 pt-16">
+        <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto">
             <motion.h1
-                className="font-bold md:text-6xl text-7xl md:mx-auto mx-1 text-center"
+                className="font-bold lg:text-7xl text-6xl mx-auto px-5 text-center"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
@@ -28,9 +28,15 @@ export default function ValueInvesting() {
             >
                 What is Value Investing?
             </motion.h1>
+            {/* Thin divider */}
+            <motion.div
+                initial={{ scaleX: 0, opacity: 0 }}
+                animate={{ scaleX: 1, opacity: 1 }}
+                transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+                className="h-px md:w-140 w-40 mt-8 mx-auto bg-linear-to-r from-transparent via-[rgba(99,179,237,0.5)] to-transparent"
+            />
             <motion.span
-                className="xl:max-w-6xl lg:max-w-5xl md:text-justify
-                  md:text-2xl text-3xl mt-10 md:mx-auto mx-4 text-center leading-10"
+                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-12 mx-auto px-14 leading-7"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
@@ -41,12 +47,11 @@ export default function ValueInvesting() {
                 (total assets - total liabilities) or intrinsic value
                 (the true value of a company based on its financials and
                 growth potential). The stock market can overreact to news
-                about a company, resulting in stock price movements that do 
+                about a company, resulting in stock price movements that do
                 not follow a company&apos;s long term fundamentals.
             </motion.span>
             <motion.span
-                className="xl:max-w-6xl lg:max-w-5xl md:text-justify
-                  md:text-2xl text-3xl mt-10 md:mx-auto mx-4 text-center leading-10"
+                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-12 mx-auto px-14 leading-7"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"

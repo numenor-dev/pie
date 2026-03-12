@@ -32,9 +32,9 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
     const multipleCompanies = relatedCompanies.length > 1;
 
     return (
-        <div className="xl:max-w-7xl lg:max-w-5xl mx-auto pt-20 px-4">
+        <div className="lg:max-w-7xl md:max-w-4xl max-w-xl mx-auto px-5 pt-10">
             <motion.div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 place-item-center"
+                className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mb-12 place-item-center mx-auto"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -63,7 +63,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 ))}
             </motion.div>
 
-            <span className="text-2xl text-slate-200 mt-10 leading-10">
+            <span className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-12 mx-auto leading-7">
                 {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'}
                 might be worth exploring further regarding passion investing or value investing
                 ...or both! As a reminder, this is not financial advice. Remember to conduct your own research
@@ -74,7 +74,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 <ButtonArrow
                     direction="back"
                     href="/value-inv"
-                    className="mt-20 mb-16"
+                    className="my-12"
                 />
 
                 <Button

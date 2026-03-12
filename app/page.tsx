@@ -19,30 +19,29 @@ export default function Begin() {
 
   return (
     <>
-      <div className="lg:max-w-7xl max-w-xl flex flex-col mx-auto md:pt-24 pt-16 pb-32">
+      <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto pt-24">
         <motion.h1
-          className="font-bold text-7xl md:mx-auto mx-1 text-center"
+          className="font-bold lg:text-7xl text-6xl mx-auto text-center"
           style={{ letterSpacing: '-0.02em' }}
           variants={textVariants}
           initial="hidden"
           animate="visible"
           custom={0}
         >
-          Welcome to{' '}
+          Welcome{' '}
+          <span className="font-bold lg:text-7xl text-6xl">to{' '}</span>
           <span
-            style={{
-              background: 'linear-gradient(135deg, #63b3ed 0%, #68d391 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
+            className="lg:text-7xl text-6xl
+            bg-linear-to-br from-[#63b3ed] to-[#68d391]
+            bg-clip-text text-transparent
+          "
           >
             P.I.E.
           </span>
         </motion.h1>
 
         <motion.h1
-          className="font-bold text-6xl mt-10 md:mx-auto mx-1 text-center"
+          className="font-bold lg:text-5xl text-4xl mt-10 mx-auto px-5 text-center"
           style={{ letterSpacing: '-0.015em', fontWeight: 500 }}
           variants={textVariants}
           initial="hidden"
@@ -57,16 +56,11 @@ export default function Begin() {
           initial={{ scaleX: 0, opacity: 0 }}
           animate={{ scaleX: 1, opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-          style={{
-            height: 1.5,
-            width: '35rem',
-            margin: '2rem auto 0',
-            background: 'linear-gradient(90deg, transparent, rgba(99,179,237,0.5), transparent)',
-          }}
+          className="h-px md:w-140 w-40 mt-8 mx-auto bg-linear-to-r from-transparent via-[rgba(99,179,237,0.5)] to-transparent"
         />
 
         <motion.span
-          className="md:text-2xl text-3xl mt-16 md:mx-auto md:text-justify mx-4 text-center leading-10"
+          className="lg:text-2xl text-xl mt-14 mx-auto text-justify lg:px-12 px-7 leading-9"
           style={{ opacity: 0.85 }}
           variants={textVariants}
           initial="hidden"
