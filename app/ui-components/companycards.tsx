@@ -2,8 +2,8 @@
 
 import { motion } from 'motion/react';
 import type { Company } from '@/store/questiondata';
-import ButtonArrow from '../components/buttonarrow';
-import Button from '../components/button';
+import ButtonArrow from './buttonarrow';
+import Button from './button';
 
 type CompanyInfoProps = {
     relatedCompanies: Company[];

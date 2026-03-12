@@ -10,17 +10,10 @@ const schema = z.object({
 });
 
 const FILLER_WORDS = [
-    'i',
-    'like',
     'favorite',
     'my',
-    'is',
-    'and',
-    'the',
     'stuff',
     'things',
-    'to',
-    'a'
 ];
 
 export async function validateHobbies(formData: FormData) {
@@ -30,12 +23,12 @@ export async function validateHobbies(formData: FormData) {
         if (submission.status !== 'success') {
             return {
                 success: false,
-                error: 'Please enter at least one hobby!'
+                error: submission.reply()
             };
         }
 
         const hobbyList = submission.value.hobbies
-            .split(/\d+/g)
+            .split(/[\n,]+/)
             .map((h) => {
                 return h
                     .trim()
@@ -54,7 +47,8 @@ export async function validateHobbies(formData: FormData) {
         }
 
         return { success: true, hobbies: hobbyList };
-    } catch {
-        return { success: false, error: 'Please add a least one hobby!' };
+    } catch (e) {
+        console.error('validateHobbies unexpected error:', e);
+        return { success: false, error: 'Something went wrong. Please try again.' };
     }
 }

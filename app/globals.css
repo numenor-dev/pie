@@ -8,6 +8,7 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --font-inter: "Inter_Tight", sans-serif;
   --font-ubuntu: "Ubuntu", sans-serif;
 }
 

@@ -1,10 +1,10 @@
 'use client';
 
 import { useQuestionStore } from "@/store/questiondata";
-import { findCompanies } from "../api/claude";
+import { findCompanies } from "@/app/api/claude";
 import { useEffect, useState, useRef } from 'react';
 import { motion, Variants } from 'motion/react';
-import CompanyCards from "../components/companycards";
+import CompanyCards from "@/app/ui-components/companycards";
 
 export default function CompanyInformation() {
 

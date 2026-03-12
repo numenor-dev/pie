@@ -1,8 +1,8 @@
 'use client';
 
-import { refineHobbies } from '../api/claude';
+import { refineHobbies } from '@/app/api/claude';
 import { useQuestionStore } from '@/store/questiondata';
-import SubCards from '../components/subcards';
+import SubCards from '@/app/ui-components/subcards';
 import { useEffect, useState, useRef } from 'react';
 import { motion, Variants } from 'motion/react';
 

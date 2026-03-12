@@ -13,12 +13,15 @@ function extractJSON(text: string) {
             .replace(/```\n?/g, '')
             .trim();
         return JSON.parse(cleaned);
-    } catch {
-        throw new Error('Failed to parse Claude response as JSON');
+    } catch (e) {
+        throw new Error(`Failed to parse Claude response as JSON: ${(e as Error).message}\nRaw: ${text}`);
     }
 }
 
 export async function refineHobbies(hobbies: string[]) {
+
+    if (!hobbies.length) throw new Error('Hobbies cannot be empty!');
+
     const message = await client.messages.create({
         model: 'claude-haiku-4-5-20251001',
         max_tokens: 1024,
@@ -47,8 +50,11 @@ export async function refineHobbies(hobbies: string[]) {
 }
 
 export async function findCompanies(refinedHobbies: string[]) {
+
+    if (!refinedHobbies.length) throw new Error('refinedHobbies cannot be empty!');
+
     const message = await client.messages.create({
-        model: 'claude-haiku-4-5',
+        model: 'claude-sonnet-4-6',
         max_tokens: 2048,
         messages: [{
             role: 'user',

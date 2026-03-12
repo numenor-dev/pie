@@ -1,23 +1,34 @@
 'use client';
 
+import { useState } from 'react';
 import { validateHobbies } from '@/app/actions/validation';
 import { useRouter } from 'next/navigation';
 import { useQuestionStore } from '@/store/questiondata';
 import toast from 'react-hot-toast';
-import ButtonArrow from '../components/buttonarrow';
+import ButtonArrow from '../../ui-components/buttonarrow';
 
 export default function QuestionOne() {
+    const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
     const { setHobbies } = useQuestionStore();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>, direction: string) => {
         event.preventDefault();
+        setLoading(true);
 
         const formData = new FormData(event.currentTarget);
         const result = await validateHobbies(formData);
+        console.log(result)
+        setLoading(false);
 
-        if (!result.success && direction === "next") {
-            toast.error(result.error || 'An unexpected error occurred. Please try again.');
+        if (!result.hobbies?.length && direction === "next") {
+            toast.error('Please enter at least one hobby!');
+            return
+        }
+
+        if (result.error) {
+            const messages = Object.values(result.error ?? {}).flat().join(', ');
+            toast.error(messages);
             return;
         }
 
@@ -34,7 +45,7 @@ export default function QuestionOne() {
     return (
         <form
             onSubmit={(e) => handleSubmit(e, "next")}
-            className="flex flex-col md:pt-32 pt-24 items-center
+            className="flex flex-col pt-24 items-center
             justify-center
             "
         >
@@ -57,6 +68,7 @@ export default function QuestionOne() {
             </label>
             <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-52">
                 <ButtonArrow
+                    disabled={loading}
                     type="submit"
                     direction="next"
                     className="mt-20"

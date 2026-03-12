@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import ButtonArrow from '../components/buttonarrow';
+import ButtonArrow from '@/app/ui-components/buttonarrow';
 
 export default function ValueInvesting() {
 

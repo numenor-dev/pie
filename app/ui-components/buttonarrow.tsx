@@ -4,6 +4,7 @@ import { useRouter, usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
 
 type ButtonArrowProps = {
+    disabled?: boolean | undefined;
     type?: 'submit' | 'reset' | 'button';
     direction: 'next' | 'back';
     href?: string;
@@ -31,7 +32,7 @@ export default function ButtonArrow({
     };
 
     const arrowVariants = {
-        hidden: { opacity: 0, y: isQuestionOne ? 0 : 40},
+        hidden: { opacity: 0, y: isQuestionOne ? 0 : 40 },
         visible: {
             opacity: 1,
             y: 0,

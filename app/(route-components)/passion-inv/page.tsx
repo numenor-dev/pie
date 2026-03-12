@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import ButtonArrow from '../components/buttonarrow';
+import ButtonArrow from '../../ui-components/buttonarrow';
 
 export default function PassionInvesting() {
 
@@ -18,7 +18,7 @@ export default function PassionInvesting() {
     };
 
     return (
-        <div className="lg:max-w-7xl max-w-xl flex flex-col mx-auto md:pt-24 pt-16">
+        <div className="lg:max-w-7xl max-w-xl flex flex-col mx-auto pt-10">
             <motion.h1
                 className="font-bold md:text-6xl text-7xl md:mx-auto mx-1 text-center"
                 variants={textVariants}
