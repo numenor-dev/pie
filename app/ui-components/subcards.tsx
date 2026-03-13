@@ -40,19 +40,16 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
         });
     });
 
-    const getDelay = (row: number, col: number) => (row + col) * 0.12;
-
     return (
-        <div className="xl:max-w-7xl lg:max-w-5xl flex flex-col mx-auto pt-12 px-4">
+        <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto pt-12 px-4">
             <h2 className="text-center font-bold text-4xl sm:text-5xl mb-12">
                 Which of these areas interest you the most?
             </h2>
 
             <div
                 className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:mx-0 mx-4"
-                style={{ perspective: '1000px' }}
             >
-                {allOptions.map(({ option, row, col }) => {
+                {allOptions.map(({ option }) => {
                     const isSelected = selected.includes(option);
                     return (
                         <motion.button
@@ -60,24 +57,19 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{
-                                duration: 0.5,
-                                delay: getDelay(row, col),
-                                ease: 'easeOut'
+                                duration: 0.2,
+                                ease: 'easeIn'
                             }}
-                            whileHover={{ y: -3, scale: 1.02 }}
-                            whileTap={{ scale: 0.97 }}
                             onClick={() => toggleSelect(option)}
                             className={`
-                                relative group px-5 py-4 rounded-xl text-base sm:text-lg font-medium
-                                text-left overflow-hidden border transition-colors duration-200
+                                relative group py-4 rounded-xl text-xl
+                                overflow-hidden border transition-colors duration-200
                                 ${isSelected
-                                    ? 'border-[#68d391] bg-[#68d391]/10 text-[#68d391]'
-                                    : 'border-white/10 bg-white/5 text-white/80 hover:border-white/20 hover:bg-white/10'
+                                    ? 'border-[#68d355] bg-emerald-800 text-[#68d391]'
+                                    : 'border-white/10 bg-slate-900/40 hover:border-slate-100/30 hover:bg-blue-600/10'
                                 }
                             `}
                         >
-                            {/* Shimmer on hover */}
-                            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-linear-to-r from-transparent via-white/5 to-transparent -translate-x-full group-hover:translate-x-full" />
 
                             {/* Selected glow */}
                             {isSelected && (
@@ -90,15 +82,14 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                                 />
                             )}
 
-                            <span className="relative flex items-center justify-between gap-2">
+                            <span className="relative flex items-center justify-center gap-2">
                                 {option}
                                 <motion.span
                                     initial={false}
                                     animate={{ scale: isSelected ? 1 : 0, opacity: isSelected ? 1 : 0 }}
-                                    transition={{ type: 'spring', stiffness: 400, damping: 20 }}
+                                    transition={{ type: 'spring', stiffness: 300, damping: 20 }}
                                     className="text-[#68d391] text-lg leading-none shrink-0"
                                 >
-                                    ✓
                                 </motion.span>
                             </span>
                         </motion.button>

@@ -20,7 +20,7 @@ export default function ValueInvesting() {
     return (
         <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto">
             <motion.h1
-                className="font-bold lg:text-7xl text-6xl mx-auto px-5 text-center"
+                className="font-bold lg:text-7xl text-5xl mx-auto px-5 text-center"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
@@ -51,7 +51,7 @@ export default function ValueInvesting() {
                 not follow a company&apos;s long term fundamentals.
             </motion.span>
             <motion.span
-                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-12 mx-auto px-14 leading-7"
+                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-4 mx-auto px-14 leading-7"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
