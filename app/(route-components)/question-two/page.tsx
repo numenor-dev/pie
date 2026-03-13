@@ -4,7 +4,7 @@ import { refineHobbies } from '@/app/api/claude';
 import { useQuestionStore } from '@/store/questiondata';
 import SubCards from '@/app/ui-components/subcards';
 import LoadingAnimation from '@/app/ui-components/loading-animation';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 
 
 export default function QuestionTwo() {
@@ -16,11 +16,9 @@ export default function QuestionTwo() {
     } = useQuestionStore();
 
     const [loading, setLoading] = useState(false);
-    const hasRunRef = useRef(false);
 
     useEffect(() => {
-        if (hasRunRef.current) return;
-        hasRunRef.current = true;
+        if (refinedHobbies) return;
 
         const fetchRefinedHobbies = async () => {
             setLoading(true);
@@ -35,14 +33,16 @@ export default function QuestionTwo() {
         };
 
         fetchRefinedHobbies();
-
-    }, [hobbies, setRefinedHobbies]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setRefinedHobbies]);
 
     if (loading) {
         return (
             <LoadingAnimation />
         );
     }
+
+    if (!refinedHobbies) return null;
 
     return (
         <SubCards refHobbies={refinedHobbies} />

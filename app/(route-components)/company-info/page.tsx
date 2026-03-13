@@ -2,7 +2,7 @@
 
 import { useQuestionStore } from "@/store/questiondata";
 import { findCompanies } from "@/app/api/claude";
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import CompanyCards from "@/app/ui-components/companycards";
 import LoadingAnimation from "@/app/ui-components/loading-animation";
 
@@ -15,11 +15,9 @@ export default function CompanyInformation() {
     } = useQuestionStore();
 
     const [loading, setLoading] = useState(false);
-    const hasRunRef = useRef(false);
 
     useEffect(() => {
-        if (hasRunRef.current) return;
-        hasRunRef.current = true;
+        if (companies) return;
 
         const fetchCompanies = async () => {
             setLoading(true);
@@ -35,13 +33,16 @@ export default function CompanyInformation() {
 
         fetchCompanies();
         
-    }, [setCompanies, selectedRefinedHobbies])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [selectedRefinedHobbies])
 
     if (loading) {
         return (
             <LoadingAnimation />
         );
     }
+
+    if (!companies) return null;
 
     return (
         <div>

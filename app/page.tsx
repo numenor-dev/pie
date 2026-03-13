@@ -82,7 +82,7 @@ export default function Begin() {
             href="/passion-inv"
             className="
               relative px-7 py-2 text-xl cursor-pointer font-semibold text-white border-2
-              border-white overflow-hidden mt-32
+              border-white overflow-hidden mt-24
             "
           >
             Begin

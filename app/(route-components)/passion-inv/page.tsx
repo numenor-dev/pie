@@ -28,7 +28,8 @@ export default function PassionInvesting() {
             >
                 What is Passion Investing?
             </motion.h1>
-            {/* Thin divider */}
+
+            {/* Divider */}
             <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{ scaleX: 1, opacity: 1 }}
@@ -66,6 +67,8 @@ export default function PassionInvesting() {
                 investments with your interests to create a more
                 rewarding investment experience.
             </motion.span>
+
+            {/* Nav buttons */}
             <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-52 mb-32">
                 <ButtonArrow
                     direction="next"

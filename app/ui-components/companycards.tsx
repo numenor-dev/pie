@@ -76,35 +76,35 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                         className={`bg-slate-100 rounded-lg shadow-xl py-6 cursor-pointer transition-shadow ${relatedCompanies.length <= 2 ? 'w-96' : ''
                             }`}
                     >
-                        <h3 className="text-4xl font-bold text-gray-900 mb-2">{c.name}</h3>
-                        <p className="text-md font-mono text-blue-600 font-semibold mb-3">Stock symbol: {c.ticker}</p>
-                        <p className="text-md font-mono text-blue-600 font-semibold mb-3">Website: {c.website}</p>
+                        <h3 className="text-4xl font-bold text-gray-900 mb-2 wrap-break-word px-3">{c.name}</h3>
+                        <p className="text-md font-mono text-blue-600 font-semibold mb-3 wrap-break-word">Stock symbol: {c.ticker}</p>
+                        <p className="text-md font-mono text-blue-600 font-semibold mb-3 wrap-break-word px-3">Website: {c.website}</p>
                         {c.description && (
-                            <p className="text-stone-900 font-noto text-lg leading-relaxed px-5">{c.description}</p>
+                            <p className="text-stone-900 font-noto text-lg leading-relaxed wrap-break-word px-3">{c.description}</p>
                         )}
                     </motion.button>
                 ))}
             </motion.div>
 
-            {/* Full-width divider */}
+            {/* Divider */}
             <div className="h-px w-full bg-linear-to-r from-transparent via-white/10 to-transparent mb-10" />
 
-            {/* Disclaimer box */}
+            {/* Disclaimer */}
             <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: relatedCompanies.length * 0.15 + 0.2 }}
-                className="relative rounded-xl border border-white/10 bg-white/5 px-6 py-5 mb-4 max-w-3xl mx-auto"
+                className="relative rounded-xl border border-white/30 bg-slate-800/30 px-6 py-5 mb-4 md:max-w-4xl max-w-xl mx-auto"
             >
-                <p className="text-xs font-mono text-[#63b3ed]/70 uppercase tracking-widest mb-2">
+                <p className="text-xs font-mono text-sky-400 uppercase tracking-widest mb-2">
                     Disclaimer
                 </p>
-                <span className="lg:text-xl lg:leading-9 lg:text-justify text-base leading-7 text-white/70">
+                <span className="lg:text-xl md:text-lg text-md lg:leading-9 lg:text-justify leading-7 text-slate-300">
                     {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'} might be worth exploring further regarding passion investing and/or value investing. As a reminder, this is not financial advice. Remember to conduct your own research before making any investment decisions. Just a friendly slice of advice from P.I.E.`}
                 </span>
             </motion.div>
 
-            {/* Actions */}
+            {/* Nav buttons */}
             <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -117,7 +117,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                     className="my-12"
                 />
                 <Button
-                    className="mx-auto px-7 py-2 text-xl font-semibold text-white border-2 border-white overflow-hidden relative mt-10 flex items-center gap-3"
+                    className="mx-auto px-7 py-2 text-xl font-semibold text-white border-2 border-white overflow-hidden relative flex items-center gap-3"
                     href="/question-one"
                 >
                     Explore More

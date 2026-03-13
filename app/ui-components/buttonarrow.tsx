@@ -21,13 +21,19 @@ export default function ButtonArrow({
 }: ButtonArrowProps) {
     const router = useRouter();
     const pathname = usePathname();
-    const isQuestionOne = pathname === '/question-one';
+
+    const isQuestionOne = pathname === "/question-one";
 
     const handleClick = () => {
         if (onClick) {
             onClick();
-        } else if (href) {
-            router.push(href);
+            return;
+        }
+        if (href && direction === 'next') {
+            router.push(href)
+        }
+        else if (direction === 'back') {
+            router.back()
         }
     };
 

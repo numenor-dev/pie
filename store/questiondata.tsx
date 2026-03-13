@@ -14,14 +14,14 @@ type QuestionnaireStore = {
     hobbies: string[];
     setHobbies: (hobbies: string[]) => void;
 
-    refinedHobbies: RefinedHobbies;
-    setRefinedHobbies: (refinedHobbies: RefinedHobbies) => void;
+    refinedHobbies: RefinedHobbies | null;
+    setRefinedHobbies: (refinedHobbies: RefinedHobbies | null) => void;
 
     selectedRefinedHobbies: string[];
     setSelectedRefinedHobbies: (hobbies: string[]) => void;
 
-    companies: Company[];
-    setCompanies: (companies: Company[]) => void;
+    companies: Company[] | null;
+    setCompanies: (companies: Company[] | null) => void;
 
     reset: () => void;
 };
@@ -32,13 +32,13 @@ export const useQuestionStore = create<QuestionnaireStore>()(
             hobbies: [],
             setHobbies: (hobbies) => set({ hobbies }),
 
-            refinedHobbies: {},
+            refinedHobbies: null,
             setRefinedHobbies: (refinedHobbies) => set({ refinedHobbies }),
 
             selectedRefinedHobbies: [],
             setSelectedRefinedHobbies: (hobbies) => set({ selectedRefinedHobbies: hobbies }),
 
-            companies: [],
+            companies: null,
             setCompanies: (companies) => set({ companies }),
 
             reset: () => set({

@@ -28,7 +28,8 @@ export default function ValueInvesting() {
             >
                 What is Value Investing?
             </motion.h1>
-            {/* Thin divider */}
+            
+            {/* Divider */}
             <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{ scaleX: 1, opacity: 1 }}
@@ -79,7 +80,6 @@ export default function ValueInvesting() {
 
                 <ButtonArrow
                     direction="back"
-                    href="/question-two"
                     className="mt-20"
                 />
             </div>

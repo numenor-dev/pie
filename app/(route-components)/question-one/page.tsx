@@ -10,7 +10,12 @@ import ButtonArrow from '../../ui-components/buttonarrow';
 export default function QuestionOne() {
     const [loading, setLoading] = useState<boolean>(false);
     const router = useRouter();
-    const { setHobbies } = useQuestionStore();
+    const {
+        setHobbies,
+        setRefinedHobbies,
+        setSelectedRefinedHobbies,
+        setCompanies,
+    } = useQuestionStore();
 
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>, direction: string) => {
         event.preventDefault();
@@ -18,11 +23,10 @@ export default function QuestionOne() {
 
         const formData = new FormData(event.currentTarget);
         const result = await validateHobbies(formData);
-        console.log(result)
         setLoading(false);
 
         if (!result.hobbies?.length && direction === "next") {
-            toast.error('Please enter at least one hobby!');
+            toast.error('Please add at least one hobby!');
             return
         }
 
@@ -32,22 +36,19 @@ export default function QuestionOne() {
             return;
         }
 
-        if (direction === "back") {
-            router.push('/passion-inv');
-            return;
-        }
-
-        const hobbies = result.hobbies as string[];
-        setHobbies(hobbies);
+        const hobbiesResult = result.hobbies as string[];
+        setHobbies(hobbiesResult);
+        setRefinedHobbies(null);
+        setSelectedRefinedHobbies([]);
+        setCompanies(null);
         router.push('/question-two');
-    };
+    }
 
     return (
         <form
             onSubmit={(e) => handleSubmit(e, "next")}
-            className="flex flex-col pt-24 items-center
-            justify-center
-            "
+            className="xl:max-w-7xl lg:max-w-4xl max-w-xl flex flex-col
+                pt-24 items-center justify-center mx-auto"
         >
             <h1 className="text-5xl font-bold text-center mb-12">
                 What hobbies are you passionate about?
@@ -66,6 +67,8 @@ export default function QuestionOne() {
                     placeholder="I enjoy surfing and hiking"
                 />
             </label>
+
+            {/* Nav buttons */}
             <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-52">
                 <ButtonArrow
                     disabled={loading}
@@ -77,7 +80,6 @@ export default function QuestionOne() {
                 <ButtonArrow
                     type="button"
                     direction="back"
-                    href="/passion-inv"
                     className="mt-20"
                 />
             </div>

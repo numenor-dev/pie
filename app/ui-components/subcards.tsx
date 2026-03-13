@@ -1,6 +1,5 @@
 'use client';
 
-import { useState } from 'react';
 import { useQuestionStore } from '@/store/questiondata';
 import type { RefinedHobbies } from '@/store/questiondata';
 import { useRouter } from 'next/navigation';
@@ -13,18 +12,18 @@ type SubCardsProps = {
 
 export default function SubCards({ refHobbies }: SubCardsProps) {
     const router = useRouter();
-    const [selected, setSelected] = useState<string[]>([]);
-    const { setSelectedRefinedHobbies } = useQuestionStore();
+    const { selectedRefinedHobbies, setSelectedRefinedHobbies } = useQuestionStore();
+    const selected = selectedRefinedHobbies;
 
     const handleSubmit = () => {
-        setSelectedRefinedHobbies(selected);
         router.push('/value-inv');
     };
 
     const toggleSelect = (option: string) => {
-        setSelected(prev =>
-            prev.includes(option) ? prev.filter(s => s !== option) : [...prev, option]
-        );
+        const updated = selected.includes(option)
+        ? selected.filter(s => s !== option) 
+        : [...selected, option];
+        setSelectedRefinedHobbies(updated);
     };
 
     let optionIndex = 0;
@@ -82,7 +81,7 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                                 />
                             )}
 
-                            <span className="relative flex items-center justify-center gap-2">
+                            <span className="relative flex items-center justify-center">
                                 {option}
                                 <motion.span
                                     initial={false}
