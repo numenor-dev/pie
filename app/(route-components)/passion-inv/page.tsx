@@ -37,7 +37,7 @@ export default function PassionInvesting() {
                 className="h-px md:w-140 w-40 mt-8 mx-auto bg-linear-to-r from-transparent via-[rgba(99,179,237,0.5)] to-transparent"
             />
             <motion.span
-                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-12 mx-auto px-14 leading-7"
+                className="lg:text-2xl lg:leading-8 lg:text-justify text-xl mt-12 mx-auto px-14 leading-7"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
@@ -52,7 +52,7 @@ export default function PassionInvesting() {
                 making and long term commitment.
             </motion.span>
             <motion.span
-                className="lg:text-2xl lg:leading-9 lg:text-justify text-xl mt-4 mx-auto px-14 leading-7"
+                className="lg:text-2xl lg:leading-8 lg:text-justify text-xl mt-4 mx-auto px-14 leading-7"
                 variants={textVariants}
                 initial="hidden"
                 animate="visible"
@@ -69,7 +69,7 @@ export default function PassionInvesting() {
             </motion.span>
 
             {/* Nav buttons */}
-            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-52 mb-32">
+            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-40 pb-32">
                 <ButtonArrow
                     direction="next"
                     href="/question-one"

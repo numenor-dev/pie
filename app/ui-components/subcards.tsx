@@ -96,7 +96,7 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                 })}
             </div>
 
-            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-64 mb-20">
+            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-40 mb-20">
                 <ButtonArrow
                     onClick={handleSubmit}
                     direction="next"

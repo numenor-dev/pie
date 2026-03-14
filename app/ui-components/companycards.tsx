@@ -53,7 +53,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
 
             {/* Cards */}
             <motion.div
-                className={`lg:px-0 mb-12 mx-auto px-5 gap-8 ${relatedCompanies.length <= 2
+                className={`lg:px-0 mb-12 mx-auto gap-8 ${relatedCompanies.length <= 2
                     ? 'flex flex-wrap justify-center'
                     : 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
                     }`}

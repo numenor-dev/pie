@@ -19,9 +19,9 @@ export default function Begin() {
 
   return (
     <>
-      <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto pt-24">
+      <div className="lg:max-w-7xl lg:px-0 md:max-w-4xl max-w-xl flex flex-col mx-auto pt-24 px-10">
         <motion.h1
-          className="font-bold lg:text-7xl text-6xl mx-auto text-center"
+          className="font-bold lg:text-7xl text-5xl text-center mx-auto"
           style={{ letterSpacing: '-0.02em' }}
           variants={textVariants}
           initial="hidden"
@@ -29,9 +29,9 @@ export default function Begin() {
           custom={0}
         >
           Welcome{' '}
-          <span className="font-bold lg:text-7xl text-6xl">to{' '}</span>
+          <span className="font-bold lg:text-7xl text-5xl">to{' '}</span>
           <span
-            className="lg:text-7xl text-6xl
+            className="lg:text-7xl text-5xl
             bg-linear-to-br from-[#63b3ed] to-[#68d391]
             bg-clip-text text-transparent
           "
@@ -41,7 +41,7 @@ export default function Begin() {
         </motion.h1>
 
         <motion.h1
-          className="font-bold lg:text-5xl text-4xl mt-10 mx-auto px-5 text-center"
+          className="font-bold lg:text-5xl text-3xl mt-10 text-center mx-auto"
           style={{ letterSpacing: '-0.015em', fontWeight: 500 }}
           variants={textVariants}
           initial="hidden"
@@ -60,7 +60,7 @@ export default function Begin() {
         />
 
         <motion.span
-          className="lg:text-2xl text-xl mt-14 mx-auto text-justify lg:px-12 px-7 leading-9"
+          className="xl:px-0 lg:text-2xl lg:text-left lg:px-7 text-lg mt-14 mx-auto leading-7 text-center"
           style={{ opacity: 0.85 }}
           variants={textVariants}
           initial="hidden"
@@ -73,7 +73,7 @@ export default function Begin() {
         </motion.span>
 
         <motion.div
-          className="mx-auto"
+          className="mx-auto pb-28"
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
