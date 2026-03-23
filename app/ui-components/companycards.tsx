@@ -65,6 +65,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 {relatedCompanies.map((c, index) => (
                     <motion.a
                         key={c.name}
+                        href={c.website}
                         variants={cardVariants}
                         custom={index}
                         initial="hidden"
@@ -79,7 +80,7 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                             }`}
                     >
                         <h3 className="text-4xl font-bold text-black mb-2 wrap-break-word px-3">{c.name}</h3>
-                        <p className="text-base font-mono text-sky-500 font-semibold mb-3 wrap-break-word">Stock symbol: {c.ticker}</p>
+                        <p className="text-base font-mono text-sky-500 font-semibold mb-3 wrap-break-word px-3">Stock symbol: {c.ticker}</p>
                         <p className="text-base font-mono text-sky-500 font-semibold mb-3 wrap-break-word px-3">Website: {c.website}</p>
                         {c.description && (
                             <p className="text-stone-900 font-noto text-lg leading-relaxed wrap-break-word px-3">{c.description}</p>
