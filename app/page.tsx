@@ -14,7 +14,7 @@ const textVariants = {
 
 export default function Begin() {
   return (
-    <div className="flex flex-col mx-auto pt-36">
+    <div className="min-h-screen flex flex-col mx-auto pt-36">
       <div className="bg-emerald-500/90 w-full shadow-lg">
         <div className="max-w-7xl mx-auto px-10 py-16 flex flex-col md:flex-row items-center gap-12">
 

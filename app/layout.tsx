@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.variable} ${roboto.variable} antialiased`}>
-        <div className="min-h-screen font-roboto bg-stone-50 text-zinc-800 relative overflow-x-hidden">
+        <div className="font-roboto bg-stone-50 text-zinc-800 relative overflow-x-hidden">
           <Toaster
             toastOptions={{
               className: "rounded-sm shadow-md",
