@@ -5,6 +5,7 @@ import type { RefinedHobbies } from '@/store/questiondata';
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
 import ButtonArrow from './buttonarrow';
+import toast from 'react-hot-toast';
 
 type SubCardsProps = {
     refHobbies: RefinedHobbies;
@@ -16,6 +17,10 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
     const selected = selectedRefinedHobbies;
 
     const handleSubmit = () => {
+        if (selected.length === 0) {
+            toast.error('Please select at least one interest!');
+            return;
+        }
         router.push('/value-inv');
     };
 
@@ -40,13 +45,13 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
     });
 
     return (
-        <div className="lg:max-w-7xl md:max-w-4xl max-w-xl flex flex-col mx-auto pt-12 px-4">
-            <h2 className="text-center font-bold text-4xl sm:text-5xl mb-12">
+        <div className="lg:max-w-7xl md:max-w-3xl max-w-xl flex flex-col mx-auto md:px-16 px-10 mt-32">
+            <h2 className="font-bold lg:text-6xl text-4xl mx-auto text-center">
                 Which of these areas interest you the most?
             </h2>
 
             <div
-                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:mx-0 mx-4"
+                className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-3 mt-12"
             >
                 {allOptions.map(({ option }) => {
                     const isSelected = selected.includes(option);
@@ -61,11 +66,11 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                             }}
                             onClick={() => toggleSelect(option)}
                             className={`
-                                relative group py-4 rounded-xl text-xl
+                                relative group py-3 rounded-xl text-xl
                                 overflow-hidden border transition-colors duration-200
                                 ${isSelected
-                                    ? 'border-[#68d355] bg-emerald-800 text-[#68d391]'
-                                    : 'border-white/10 bg-slate-900/40 hover:border-slate-100/30 hover:bg-blue-600/10'
+                                    ? 'border-[#68d355] bg-emerald-500 text-black'
+                                    : 'border-stone-200 bg-sky-700/30 hover:bg-cyan-600/30'
                                 }
                             `}
                         >

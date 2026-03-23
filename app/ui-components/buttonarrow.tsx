@@ -1,7 +1,8 @@
 'use client';
 
-import { useRouter, usePathname } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
+import Link from 'next/link';
 
 type ButtonArrowProps = {
     disabled?: boolean | undefined;
@@ -12,30 +13,18 @@ type ButtonArrowProps = {
     className?: string;
 };
 
+
 export default function ButtonArrow({
+    disabled,
     type = 'button',
     direction,
     href,
     onClick,
     className = '',
 }: ButtonArrowProps) {
-    const router = useRouter();
+
     const pathname = usePathname();
-
     const isQuestionOne = pathname === "/question-one";
-
-    const handleClick = () => {
-        if (onClick) {
-            onClick();
-            return;
-        }
-        if (href && direction === 'next') {
-            router.push(href)
-        }
-        else if (direction === 'back') {
-            router.back()
-        }
-    };
 
     const arrowVariants = {
         hidden: { opacity: 0, y: isQuestionOne ? 0 : 40 },
@@ -49,16 +38,20 @@ export default function ButtonArrow({
         hover: {
             x: direction === 'next' ? 5 : -5,
             transition: {
-                yoyo: Infinity, duration: 0.3
+                repeat: Infinity,
+                repeatType: 'reverse' as const,
+                duration: 0.3
             }
         },
     };
 
-    return (
+
+    const animatedButtonArrow = (
         <motion.button
+            disabled={disabled}
             type={type}
             className={`cursor-pointer flex ${className}`}
-            onClick={handleClick}
+            onClick={onClick}
         >
             {direction === 'next' ? (
                 <>
@@ -107,4 +100,10 @@ export default function ButtonArrow({
             )}
         </motion.button>
     );
+
+    if (href) {
+        return <Link href={href}>{animatedButtonArrow}</Link>
+    }
+
+    return animatedButtonArrow;
 }

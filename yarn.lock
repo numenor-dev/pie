@@ -217,17 +217,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@conform-to/react@npm:^1.15.1":
-  version: 1.15.1
-  resolution: "@conform-to/react@npm:1.15.1"
-  dependencies:
-    "@conform-to/dom": "npm:1.15.1"
-  peerDependencies:
-    react: ">=18"
-  checksum: 10c0/92e257a958b7a11e396758ac68d44bd91f819989d5345749880cbc401f05bd11ffe16b6b441360ee6d62c78b405ca01a774396b517d8d04af58a52b9a356fdef
-  languageName: node
-  linkType: hard
-
 "@conform-to/zod@npm:^1.0.0":
   version: 1.15.1
   resolution: "@conform-to/zod@npm:1.15.1"
@@ -3583,7 +3572,6 @@ __metadata:
   resolution: "pie@workspace:."
   dependencies:
     "@anthropic-ai/sdk": "npm:^0.71.2"
-    "@conform-to/react": "npm:^1.15.1"
     "@conform-to/zod": "npm:^1.0.0"
     "@tailwindcss/postcss": "npm:^4"
     "@types/node": "npm:^20"

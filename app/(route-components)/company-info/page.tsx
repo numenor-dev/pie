@@ -1,12 +1,16 @@
 'use client';
 
 import { useQuestionStore } from "@/store/questiondata";
-import { findCompanies } from "@/app/api/claude";
+import { findCompanies } from "@/app/actions/claude";
 import { useEffect, useState } from 'react';
 import CompanyCards from "@/app/ui-components/companycards";
 import LoadingAnimation from "@/app/ui-components/loading-animation";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 export default function CompanyInformation() {
+
+    const router = useRouter();
 
     const {
         selectedRefinedHobbies,
@@ -15,26 +19,35 @@ export default function CompanyInformation() {
     } = useQuestionStore();
 
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState<string | null>(null);
+
+     useEffect(() => {
+        if (!selectedRefinedHobbies.length) router.replace('/question-one');
+    }, [selectedRefinedHobbies, router]);
 
     useEffect(() => {
         if (companies) return;
 
         const fetchCompanies = async () => {
             setLoading(true);
+            setError(null);
             try {
                 const relatedCompanies = await findCompanies(selectedRefinedHobbies);
                 setCompanies(relatedCompanies)
-            } catch (error) {
-                console.error('Failed to get companies', error)
-            } finally {
+            } catch (err) {
+                console.error('Failed to fetch companies:', err);
+                const message = 'Something unexpected happened! Please try again.';
+                setError(message);
+                toast.error(message);
+            }
+            finally {
                 setLoading(false);
             }
         }
 
         fetchCompanies();
-        
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [selectedRefinedHobbies])
+
+    }, [companies, setCompanies, selectedRefinedHobbies])
 
     if (loading) {
         return (
@@ -42,10 +55,11 @@ export default function CompanyInformation() {
         );
     }
 
+    if (error) return <p className="text-red-500">{error}</p>;
     if (!companies) return null;
 
     return (
-        <div>
+        <div className="mt-32">
             <CompanyCards relatedCompanies={companies} />
         </div>
     )

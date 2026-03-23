@@ -1,18 +1,19 @@
 'use server';
 
 import Anthropic from "@anthropic-ai/sdk";
+import type { RefinedHobbies, Company } from '@/store/questiondata';
 
 const client = new Anthropic({
     apiKey: process.env.ANTHROPIC_API_KEY
 });
 
-function extractJSON(text: string) {
+function extractJSON<T>(text: string): T {
     try {
         const cleaned = text
             .replace(/```json\n?/g, '')
             .replace(/```\n?/g, '')
             .trim();
-        return JSON.parse(cleaned);
+        return JSON.parse(cleaned) as T;
     } catch (e) {
         throw new Error(`Failed to parse Claude response as JSON: ${(e as Error).message}\nRaw: ${text}`);
     }
@@ -46,7 +47,7 @@ export async function refineHobbies(hobbies: string[]) {
         throw new Error('No text response from Claude');
     }
 
-    return extractJSON(textBlock.text);
+    return extractJSON(textBlock.text) as RefinedHobbies;
 }
 
 export async function findCompanies(refinedHobbies: string[]) {
@@ -82,5 +83,5 @@ export async function findCompanies(refinedHobbies: string[]) {
         throw new Error('No text response from Claude');
     }
 
-    return extractJSON(textBlock.text);
+    return extractJSON(textBlock.text) as Company[];
 }

@@ -1,78 +1,66 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
+import Link from 'next/link';
 
 type ButtonProps = {
     type?: 'button' | 'submit' | 'reset';
     children: ReactNode;
     href?: string;
-    onClick?: () => void;
+    onClick?: () => null;
     className?: string;
 };
 
+const buttonVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.5,
+        },
+    },
+    hover: {
+        scale: 1.01
+    },
+    tap: {
+        scale: 0.98
+    }
+};
+
 export default function Button({
+    type,
     children,
     href,
     onClick,
     className = '',
 }: ButtonProps) {
-
-    const [isHovered, setIsHovered] = useState<boolean>(false);
-
-    const router = useRouter();
-
-    const handleClick = () => {
-        if (onClick) {
-            onClick();
-        } else if (href) {
-            router.push(href);
-        }
-    };
-
-    const buttonVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 1,
-            },
-        },
-        hover: {
-            scale: 1.05
-        }
-    };
-
-    return (
+    const animatedButton = (
         <motion.button
-            type="button"
-            className={`${className}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            type={type}
+            className={`relative overflow-hidden ${className}`}
             variants={buttonVariants}
             initial="hidden"
             animate="visible"
-            onClick={handleClick}
+            onClick={onClick}
             whileHover="hover"
-            whileTap="hover"
+            whileTap="tap"
         >
             <motion.div
-                className="absolute inset-0 bg-white -z-10"
+                className="absolute inset-0 bg-emerald-500 -z-10"
                 initial={{ scaleX: 0 }}
-                animate={isHovered ? { scaleX: 1 } : { scaleX: 0 }}
-                transition={{ duration: 0.5, ease: "easeInOut" }}
+                variants={{ hover: { scaleX: 1 }, tap: { scaleX: 1 } }}
+                transition={{ duration: 0.5, ease: 'easeInOut' }}
                 style={{ originX: 0 }}
             />
-
-            <motion.span
-                animate={isHovered ? { color: "#1a1a1a" } : { color: "#ffffff" }}
-                transition={{ duration: 0.3 }}
-                className="relative z-10"
-            >
-                {children}
-            </motion.span>
+            <span className="relative z-10">{children}</span>
         </motion.button>
     );
+
+    if (href) {
+        return <Link href={href}>{animatedButton}</Link>;
+    }
+
+    return animatedButton;
 }

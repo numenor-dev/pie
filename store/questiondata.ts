@@ -43,7 +43,7 @@ export const useQuestionStore = create<QuestionnaireStore>()(
 
             reset: () => set({
                 hobbies: [],
-                refinedHobbies: {},
+                refinedHobbies: null,
                 selectedRefinedHobbies: [],
                 companies: []
             }),
