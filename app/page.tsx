@@ -14,14 +14,14 @@ const textVariants = {
 
 export default function Begin() {
   return (
-    <div className="flex flex-col mx-auto pt-36">
+    <main className="flex flex-col mx-auto pt-16 md:pt-20">
       <div className="bg-emerald-500/90 w-full shadow-lg">
-        <div className="max-w-7xl mx-auto px-10 py-16 flex flex-col md:flex-row items-center gap-12">
+        <div className="max-w-7xl mx-auto px-10 md:py-16 py-8 flex flex-col md:flex-row items-center gap-12">
 
           {/* Text column */}
-          <div className="flex flex-col gap-6 flex-1">
+          <div className="flex flex-col space-y-5 flex-1">
             <motion.h2
-              className="lg:text-4xl sm:text-3xl text-2xl sm:text-left text-center tracking-tight font-semibold"
+              className="lg:text-4xl md:text-3xl text-2xl md:text-left text-center tracking-tight font-semibold"
               variants={textVariants}
               initial="hidden"
               animate="visible"
@@ -66,6 +66,6 @@ export default function Begin() {
           Begin
         </Button>
       </motion.div>
-    </div>
+    </main>
   );
 }

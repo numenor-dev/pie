@@ -38,7 +38,6 @@ export default function ButtonArrow({
         hover: {
             x: direction === 'next' ? 5 : -5,
             transition: {
-                repeat: Infinity,
                 repeatType: 'reverse' as const,
                 duration: 0.3
             }

@@ -74,19 +74,17 @@ export default function QuestionOne() {
             </label>
 
             {/* Nav buttons */}
-            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-40">
+            <div className="flex flex-row-reverse mt-20 mx-auto md:gap-x-96 gap-x-40">
                 <ButtonArrow
                     disabled={loading}
                     type="submit"
                     direction="next"
-                    className="mt-20"
                 />
 
                 <ButtonArrow
                     type="button"
                     direction="back"
                     href="/passion-inv"
-                    className="mt-20"
                 />
             </div>
         </form>
