@@ -21,7 +21,7 @@ export default function Begin() {
           {/* Text column */}
           <div className="flex flex-col gap-6 flex-1">
             <motion.h2
-              className="lg:text-4xl text-2xl tracking-tight font-semibold"
+              className="lg:text-4xl sm:text-3xl text-2xl sm:text-left text-center tracking-tight font-semibold"
               variants={textVariants}
               initial="hidden"
               animate="visible"

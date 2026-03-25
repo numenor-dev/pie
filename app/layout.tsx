@@ -40,7 +40,7 @@ export default function RootLayout({
               duration: 5000,
               removeDelay: 1000,
               style: {
-                background: 'rgba(255,255,255,0.1)',
+                background: 'rgba(100,100,100,0.2)',
                 backdropFilter: 'blur(12px)',
                 border: '1px solid rgba(255,255,255,0.15)',
                 color: '#000',
@@ -48,7 +48,7 @@ export default function RootLayout({
             }}
           />
           <Header />
-          <main className="flex-1">
+          <main className="flex-1 bg-gray-100">
             {children}
           </main>
           <Footer />
