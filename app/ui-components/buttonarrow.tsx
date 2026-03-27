@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'motion/react';
-import Link from 'next/link';
+import Link from 'next/link'
 
 type ButtonArrowProps = {
     disabled?: boolean;
@@ -20,17 +20,6 @@ export default function ButtonArrow({
     onClick,
     text,
 }: ButtonArrowProps) {
-
-    const buttonVariants = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 1,
-            },
-        },
-    };
 
     const arrowVariants = {
         hover: {
@@ -79,7 +68,6 @@ export default function ButtonArrow({
             <Link href={href}>
                 <motion.div
                     className={sharedClassName}
-                    variants={buttonVariants}
                     initial="hidden"
                     animate="visible"
                     whileHover="hover"
@@ -96,7 +84,6 @@ export default function ButtonArrow({
             type={type}
             className={sharedClassName}
             onClick={onClick}
-            variants={buttonVariants}
             initial="hidden"
             animate="visible"
             whileHover="hover"
