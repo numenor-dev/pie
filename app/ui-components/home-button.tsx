@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'motion/react';
 
 const PIE_BODY =
@@ -10,8 +10,7 @@ const PIE_BODY =
 const PIE_SLICE =
     'M14.2544 1.36453C13.1584 1.05859 12.132 1.38932 11.4026 2.05955C10.6845 2.71939 10.25 3.70552 10.25 4.76063V11.4551C10.25 12.7226 11.2775 13.75 12.5449 13.75H19.2394C20.2945 13.75 21.2806 13.3156 21.9405 12.5974C22.6107 11.868 22.9414 10.8416 22.6355 9.74563C21.5034 5.69003 18.31 2.49663 14.2544 1.36453ZM11.75 4.76063C11.75 4.10931 12.0201 3.52918 12.4175 3.16407C12.8035 2.80935 13.3035 2.65643 13.8511 2.8093C17.4013 3.80031 20.1997 6.59875 21.1907 10.1489C21.3436 10.6965 21.1907 11.1965 20.8359 11.5825C20.4708 11.9799 19.8907 12.25 19.2394 12.25H12.5449C12.1059 12.25 11.75 11.8941 11.75 11.4551V4.76063Z';
 
-// The slice occupies roughly the upper-right quadrant, so its midpoint
-// sits at ~45° clockwise from 12 o'clock.
+// pie slice
 const MID_ANGLE_DEG = 45;
 const toRad = (d: number) => (d - 90) * (Math.PI / 180);
 const OFFSET_DIST = 2.5;
@@ -20,10 +19,12 @@ const sliceOffsetY = OFFSET_DIST * Math.sin(toRad(MID_ANGLE_DEG));
 
 export default function HomeButton() {
     const [hovered, setHovered] = useState(false);
+    const ref = useRef(null);
 
     return (
         <Link href="/" aria-label="Go to home">
             <motion.div
+                ref={ref}
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
                 className="inline-flex items-center gap-x-2 mt-2 sm:ml-0 ml-10 cursor-pointer hover:text-emerald-400 transition-colors duration-200"

@@ -46,7 +46,7 @@ export default function Begin() {
             </motion.p>
           </div>
 
-          <Image src="/pie.svg" width={320} height={320} alt={''} />
+          <Image src="/pie.svg" width={310} height={300} alt={''} />
 
         </div>
       </div>
