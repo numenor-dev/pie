@@ -63,9 +63,9 @@ export default function QuestionOne() {
                     name="hobbies"
                     id="hobbies"
                     type="text"
-                    className="xl:max-w-7xl md:max-w-4xl max-w-xs
-                    rounded-md bg-slate-500/10 border border-slate-500 lg:w-[65em] md:w-[35em] w-[25em] h-10 text-center
-                    text-base text-black focus:outline-2 focus:outline-emerald-200
+                    className="xl:max-w-7xl lg:max-w-4xl md:max-w-xl sm:max-w-sm max-w-xs
+                    rounded-md bg-slate-500/10 border border-slate-400/60 lg:w-[65em] md:w-[35em] w-[25em] h-10 text-center
+                    text-base text-black focus:outline-2 focus:outline-emerald-400
                     "
                     formNoValidate
                     placeholder="I enjoy surfing, hiking, and gaming"
@@ -74,17 +74,19 @@ export default function QuestionOne() {
             </label>
 
             {/* Nav buttons */}
-            <div className="flex flex-row-reverse mt-20 mx-auto md:gap-x-96 gap-x-40">
+            <div className="md:gap-x-72 md:mt-20 mt-16 flex flex-row-reverse mx-auto gap-x-28 pb-28">
                 <ButtonArrow
                     disabled={loading}
                     type="submit"
                     direction="next"
+                    text={"Next"}
                 />
 
                 <ButtonArrow
                     type="button"
                     direction="back"
                     href="/passion-inv"
+                    text={"Back"}
                 />
             </div>
         </form>

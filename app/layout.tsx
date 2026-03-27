@@ -6,8 +6,8 @@ import { Toaster } from 'react-hot-toast'
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Personalized Investment Engine",
-  description: "A tool to learn about passion and value investing.",
+  title: "Personalized Investment Explorer",
+  description: "A tool to help navigate passion and value investing.",
   openGraph: {
     images: ["/growth.png"],
   },

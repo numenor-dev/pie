@@ -2,6 +2,7 @@
 
 import { motion } from 'motion/react';
 import Button from './ui-components/button';
+import Image from 'next/image';
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -15,11 +16,11 @@ const textVariants = {
 export default function Begin() {
   return (
     <main className="flex flex-col mx-auto pt-16 md:pt-20">
-      <div className="bg-emerald-500/90 w-full shadow-lg">
+      <div className="bg-emerald-400 w-full shadow-lg">
         <div className="max-w-7xl mx-auto px-10 md:py-16 py-8 flex flex-col md:flex-row items-center gap-12">
 
           {/* Text column */}
-          <div className="flex flex-col space-y-5 flex-1">
+          <div className="flex flex-col space-y-3 flex-1">
             <motion.h2
               className="lg:text-4xl md:text-3xl text-2xl md:text-left text-center tracking-tight font-semibold"
               variants={textVariants}
@@ -27,7 +28,7 @@ export default function Begin() {
               animate="visible"
               custom={0}
             >
-              Your Personalized Investment Engine
+              Your Personalized Investment Explorer
             </motion.h2>
 
             <motion.p
@@ -38,18 +39,15 @@ export default function Begin() {
               animate="visible"
               custom={1}
             >
-              PIE is a tool to learn about passion and value investing.
-              It will not buy stocks nor provide financial advice, but it will
-              teach you about passion and value investing while helping you find
+              PIE is a tool to help you navigate passion and value investing.
+              It will not buy stocks or provide financial advice, but it will
+              teach you about both strategies while helping you find
               companies that align with your interests and values.
             </motion.p>
           </div>
 
-          {/* Image column */}
-          <motion.img
-            src="/growth.png"
-            className="w-64 lg:w-80 object-contain shrink-0"
-          />
+          <Image src="/pie.svg" width={320} height={320} alt={''} />
+
         </div>
       </div>
 
@@ -61,7 +59,10 @@ export default function Begin() {
       >
         <Button
           href="/passion-inv"
-          className="px-8 py-2 text-xl cursor-pointer rounded-md font-semibold border-2 bg-black border-black text-stone-200 hover:border-emerald-500"
+          className="
+          px-8 py-2 text-xl cursor-pointer rounded-md font-semibold
+          border-2 bg-black border-black text-stone-200 hover:border-emerald-500
+          "
         >
           Begin
         </Button>

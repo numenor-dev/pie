@@ -1,18 +1,16 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
 import { motion } from 'motion/react';
 import Link from 'next/link';
 
 type ButtonArrowProps = {
-    disabled?: boolean | undefined;
+    disabled?: boolean;
     type?: 'submit' | 'reset' | 'button';
     direction: 'next' | 'back';
     href?: string;
     onClick?: () => void;
-    className?: string;
+    text?: string;
 };
-
 
 export default function ButtonArrow({
     disabled,
@@ -20,14 +18,11 @@ export default function ButtonArrow({
     direction,
     href,
     onClick,
-    className = '',
+    text,
 }: ButtonArrowProps) {
 
-    const pathname = usePathname();
-    const isQuestionOne = pathname === "/question-one";
-
-    const arrowVariants = {
-        hidden: { opacity: 0, y: isQuestionOne ? 0 : 40 },
+    const buttonVariants = {
+        hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
@@ -35,74 +30,78 @@ export default function ButtonArrow({
                 duration: 1,
             },
         },
+    };
+
+    const arrowVariants = {
         hover: {
             x: direction === 'next' ? 5 : -5,
             transition: {
                 repeatType: 'reverse' as const,
-                duration: 0.3
-            }
+                duration: 0.3,
+            },
         },
-    };
+    }
 
+    const arrowSvg = (
+        <motion.svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.5}
+            stroke="currentColor"
+            className="w-5"
+            variants={arrowVariants}
+        >
+            <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d={
+                    direction === 'next'
+                        ? 'M13.5 4.5 21 12m0 0-7.5 7.5M21 12H3'
+                        : 'M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18'
+                }
+            />
+        </motion.svg>
+    );
 
-    const animatedButtonArrow = (
+    const innerContent = (
+        <div className="flex flex-row items-center gap-x-1">
+            {direction === 'back' && arrowSvg}
+            {text}
+            {direction === 'next' && arrowSvg}
+        </div>
+    );
+
+    const sharedClassName = "border-2 border-emerald-500 rounded-3xl py-2 px-7 cursor-pointer inline-flex";
+
+    if (href) {
+        return (
+            <Link href={href}>
+                <motion.div
+                    className={sharedClassName}
+                    variants={buttonVariants}
+                    initial="hidden"
+                    animate="visible"
+                    whileHover="hover"
+                >
+                    {innerContent}
+                </motion.div>
+            </Link>
+        );
+    }
+
+    return (
         <motion.button
             disabled={disabled}
             type={type}
-            className={`cursor-pointer flex ${className}`}
+            className={sharedClassName}
             onClick={onClick}
+            variants={buttonVariants}
+            initial="hidden"
+            animate="visible"
+            whileHover="hover"
         >
-            {direction === 'next' ? (
-                <>
-                    <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="size-8 h-12 w-16"
-                        variants={arrowVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ duration: 0.3 }}
-                        whileHover="hover"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M17.25 8.25 21 12m0 0-3.75 3.75M21 12H3"
-                        />
-                    </motion.svg>
-                </>
-            ) : (
-                <>
-                    <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={1.5}
-                        stroke="currentColor"
-                        className="size-8 h-12 w-16"
-                        variants={arrowVariants}
-                        initial="hidden"
-                        animate="visible"
-                        transition={{ duration: 0.3 }}
-                        whileHover="hover"
-                    >
-                        <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M6.75 15.75 3 12m0 0 3.75-3.75M3 12h18"
-                        />
-                    </motion.svg>
-                </>
-            )}
+            {innerContent}
         </motion.button>
     );
-
-    if (href) {
-        return <Link href={href}>{animatedButtonArrow}</Link>
-    }
-
-    return animatedButtonArrow;
 }

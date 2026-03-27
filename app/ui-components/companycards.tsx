@@ -109,12 +109,12 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: relatedCompanies.length * 0.15 + 0.35 }}
-                className="flex flex-col items-center pb-40"
+                className="flex flex-col items-center pb-40 mt-12 space-y-12"
             >
                 <ButtonArrow
                     direction="back"
                     href="/value-inv"
-                    className="my-12"
+                    text={"Back"}
                 />
                 <Button
                      className="relative px-8 py-3 text-xl cursor-pointer rounded-md font-semibold border-2 bg-black border-black text-stone-200 hover:border-emerald-500 overflow-hidden"

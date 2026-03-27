@@ -69,8 +69,8 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                                 relative group py-3 rounded-xl text-xl
                                 overflow-hidden border transition-colors duration-200
                                 ${isSelected
-                                    ? 'border-[#68d355] bg-emerald-500 text-black'
-                                    : 'border-stone-200 bg-sky-700/30 hover:bg-cyan-600/30'
+                                    ? 'border-emerald-400 bg-emerald-400 text-black'
+                                    : 'border-emerald-500 hover:bg-slate-200/90'
                                 }
                             `}
                         >
@@ -101,16 +101,16 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                 })}
             </div>
 
-            <div className="flex flex-row-reverse mx-auto md:gap-x-96 gap-x-40 mb-20">
+            <div className="flex flex-row-reverse mx-auto md:gap-x-72 gap-x-20 mt-20 mb-20">
                 <ButtonArrow
                     onClick={handleSubmit}
                     direction="next"
-                    className="mt-20"
+                    text={"Next"}
                 />
                 <ButtonArrow
                     direction="back"
                     href="/question-one"
-                    className="mt-20"
+                    text={"Back"}
                 />
             </div>
         </div>
