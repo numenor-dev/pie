@@ -20,7 +20,7 @@ export default function ValueInvesting() {
 
             {/* Text info */}
             <div className="w-screen relative left-1/2 -translate-x-1/2 bg-emerald-400 py-10 mt-2 shadow-lg">
-                <div className="flex items-center lg:max-w-5xl md:max-w-3xl sm:max-w-md max-w-xs mx-auto pl-12">
+                <div className="flex items-center lg:max-w-5xl md:max-w-3xl sm:max-w-md max-w-xs mx-auto md:pl-12">
                     <div className="flex-1 lg:max-w-2xl text-left lg:text-xl text-lg text-black space-y-5 leading-relaxed">
                         <motion.p
                             variants={textVariants}
