@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import Button from './ui-components/button';
-import Image from 'next/image';
+import PieChart from './ui-components/pie-chart';
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -16,7 +16,7 @@ const textVariants = {
 export default function Begin() {
   return (
     <main className="flex flex-col mx-auto pt-16 md:pt-20">
-      <div className="bg-emerald-400 w-full shadow-lg">
+      <div className="bg-emerald-400 w-full shadow-lg py-5">
         <div className="max-w-7xl mx-auto px-10 md:py-16 py-8 flex flex-col md:flex-row items-center gap-12">
 
           {/* Text column */}
@@ -46,7 +46,7 @@ export default function Begin() {
             </motion.p>
           </div>
 
-          <Image src="/pie.svg" width={310} height={300} alt={''} />
+          <PieChart />
 
         </div>
       </div>

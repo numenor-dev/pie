@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Roboto_Flex } from "next/font/google";
+import { Inter_Tight, Roboto_Flex, Inter } from "next/font/google";
 import Header from "./ui-components/header";
 import Footer from "./ui-components/footer";
 import { Toaster } from 'react-hot-toast'
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Personalized Investment Explorer",
@@ -31,7 +34,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={cn("font-sans", inter.variable)}>
       <body className={`${inter.variable} ${roboto.variable} antialiased`}>
         <div className="min-h-screen font-roboto bg-stone-50 text-zinc-800 relative overflow-x-hidden flex flex-col">
           <Toaster
