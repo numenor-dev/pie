@@ -7,74 +7,77 @@ import Image from 'next/image';
 
 export default function ValueInvesting() {
     return (
-        <main className="flex flex-col mx-auto mt-20">
-            <motion.h1
-                className="font-bold lg:text-5xl text-4xl lg:max-w-4xl md:max-w-2xl sm:max-w-md max-w-xs mx-auto text-center"
-                variants={textVariants}
-                initial="hidden"
-                animate="visible"
-                custom={0}
-            >
-                What is Value Investing?
-            </motion.h1>
+        <main className="flex flex-col pt-8">
 
-            {/* Text info */}
-            <div className="w-screen relative left-1/2 -translate-x-1/2 bg-emerald-400 py-10 mt-2 shadow-lg">
-                <div className="flex items-center lg:max-w-5xl md:max-w-3xl sm:max-w-md max-w-xs mx-auto md:pl-12">
-                    <div className="flex-1 lg:max-w-2xl text-left lg:text-xl text-lg text-black space-y-5 leading-relaxed">
+            {/* Full width banner */}
+            <div className="w-screen relative left-1/2 -translate-x-1/2 bg-emerald-700 py-16 md:py-20">
+                <div className="flex items-start gap-12 lg:gap-16 lg:max-w-4xl md:max-w-2xl max-w-sm mx-auto px-6 md:px-0">
+
+                    <div className="flex-1">
                         <motion.p
+                            className="text-emerald-300 text-xs font-medium tracking-widest uppercase mb-4"
+                            variants={textVariants}
+                            initial="hidden"
+                            animate="visible"
+                            custom={0}
+                        >
+                            Step 3 of 3
+                        </motion.p>
+
+                        <motion.h1
+                            className="font-bold text-4xl lg:text-5xl text-white leading-tight mb-8"
                             variants={textVariants}
                             initial="hidden"
                             animate="visible"
                             custom={1}
                         >
-                            Value investing involves researching stocks that appear
-                            to be trading for less than its book value
-                            (total assets - total liabilities) or intrinsic value
-                            (the true value of a company based on its financials and
-                            growth potential). The stock market can overreact to news
-                            about a company, resulting in stock price movements that do
-                            not follow a company&apos;s long term fundamentals.
-                        </motion.p>
-                        <motion.p
-                            variants={textVariants}
-                            initial="hidden"
-                            animate="visible"
-                            custom={2}
-                        >
-                            A classic example of a value investment is Berkshire Hathaway.
-                            Even though the company was struggling as a textile manufacturer
-                            in the 1960s, Warren Buffett saw that the stock was undervalued
-                            compared to its assets on hand. By 1965, he owned 392,633 shares,
-                            enough to own a controlling stake in the company. Buffett then
-                            transformed Berkshire Hathaway into a holding company and invested
-                            in many other undervalued companies. In 1962, the stock price was
-                            $7.50 per share. Today, the stock price is over $700,000 per share.
-                            Granted, this is an extreme example, possibly the most extreme example
-                            of value investing success, but it illustrates the potential of
-                            value investing when done correctly.
-                        </motion.p>
+                            What is Value Investing?
+                        </motion.h1>
+
+                        <div className="text-emerald-100 text-base lg:text-lg leading-relaxed space-y-5">
+                            <motion.p
+                                variants={textVariants}
+                                initial="hidden"
+                                animate="visible"
+                                custom={2}
+                            >
+                                Value investing involves finding stocks trading below their
+                                book value (total assets minus liabilities) or intrinsic value
+                                (the true worth based on financials and growth potential). The
+                                market can overreact to news, creating price movements that
+                                don&apos;t reflect a company&apos;s long-term fundamentals —
+                                and that gap is the opportunity.
+                            </motion.p>
+                            <motion.p
+                                variants={textVariants}
+                                initial="hidden"
+                                animate="visible"
+                                custom={3}
+                            >
+                                The classic example is Berkshire Hathaway. In the 1960s,
+                                Warren Buffett recognized the stock was undervalued relative
+                                to its assets and acquired a controlling stake at $7.50 per
+                                share. He transformed it into a holding company and applied
+                                the same logic to many other undervalued businesses. Today,
+                                that share trades at over $700,000 — an extreme case, but one
+                                that illustrates the potential when value investing is done right.
+                            </motion.p>
+                        </div>
                     </div>
 
-                    <div className="hidden md:flex shrink-0 md:ml-10 lg:ml-28">
-                        <Image src="/growth.svg" quality={100} width={200} height={200} alt={' '} />
+                    <div className="hidden md:flex shrink-0 bg-black/20 rounded-full p-6 mt-2">
+                        <Image src="/growth.svg" quality={100} width={160} height={160} alt="" />
                     </div>
+
                 </div>
             </div>
 
             {/* Nav buttons */}
-            <div className="md:gap-x-72 md:mt-20 mt-16 flex flex-row-reverse mx-auto gap-x-28 pb-28">
-                <ButtonArrow
-                    direction="next"
-                    href="/company-info"
-                    text={"Next"}
-                />
-                <ButtonArrow
-                    direction="back"
-                    href="/question-two"
-                    text={"Back"}
-                />
+            <div className="lg:max-w-4xl md:max-w-2xl max-w-sm mx-auto w-full px-6 md:px-0 flex justify-between mt-12 pb-24">
+                <ButtonArrow direction="back" href="/question-two" text="Back" />
+                <ButtonArrow direction="next" href="/company-info" text="Next" />
             </div>
+
         </main>
-    )
+    );
 }

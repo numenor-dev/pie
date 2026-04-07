@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
-import { Inter_Tight, Roboto_Flex, Inter } from "next/font/google";
+import { Inter_Tight, Roboto_Flex } from "next/font/google";
 import Header from "./ui-components/header";
 import Footer from "./ui-components/footer";
 import { Toaster } from 'react-hot-toast'
 import "./globals.css";
 import { cn } from "@/lib/utils";
-
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 export const metadata: Metadata = {
   title: "Personalized Investment Explorer",
@@ -36,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={cn("font-sans", inter.variable)}>
       <body className={`${inter.variable} ${roboto.variable} antialiased`}>
-        <div className="min-h-screen font-roboto bg-stone-50 text-zinc-800 relative overflow-x-hidden flex flex-col">
+        <div className="min-h-screen font-roboto relative overflow-x-hidden flex flex-col">
           <Toaster
             toastOptions={{
               className: "rounded-sm shadow-md",
@@ -51,7 +49,7 @@ export default function RootLayout({
             }}
           />
           <Header />
-          <main className="flex-1 bg-gray-100">
+          <main className="flex-1 bg-stone-100 text-stone-800">
             {children}
           </main>
           <Footer />

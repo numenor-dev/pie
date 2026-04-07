@@ -1,88 +1,71 @@
 "use client"
 
-import { TrendingUp } from "lucide-react"
 import { Pie, PieChart } from "recharts"
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
+    Card,
+    CardContent,
 } from "@/components/ui/card"
 import {
-  ChartContainer,
-  ChartTooltip,
-  ChartTooltipContent,
-  type ChartConfig,
+    ChartContainer,
+    ChartTooltip,
+    ChartTooltipContent,
+    type ChartConfig,
 } from "@/components/ui/chart"
 
-export const description = "A simple pie chart"
+export const description = "A pie chart with no separator"
 
 const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
+    { stock: "BRK", value: 275, fill: "#76DBAB" },
+    { stock: "AAPL", value: 200, fill: "#4BB380" },
+    { stock: "KRW", value: 187, fill: "#358F62" },
+    { stock: "MSFT", value: 173, fill: "#226E45" },
+    { stock: "SE", value: 90, fill: "#134D2B" },
 ]
 
 const chartConfig = {
-  visitors: {
-    label: "Visitors",
-  },
-  chrome: {
-    label: "Chrome",
-    color: "var(--chart-1)",
-  },
-  safari: {
-    label: "Safari",
-    color: "var(--chart-2)",
-  },
-  firefox: {
-    label: "Firefox",
-    color: "var(--chart-3)",
-  },
-  edge: {
-    label: "Edge",
-    color: "var(--chart-4)",
-  },
-  other: {
-    label: "Other",
-    color: "var(--chart-5)",
-  },
+    stock: {
+        label: "Stock",
+    },
+    BRK: {
+        label: "BRK",
+    },
+    AAPL: {
+        label: "AAPL",
+    },
+    KRW: {
+        label: "KRW",
+    },
+    MSFT: {
+        label: "MSFT",
+    },
+    SE: {
+        label: "SE",
+    },
 } satisfies ChartConfig
 
-export function ChartPieSimple() {
-  return (
-    <Card className="flex flex-col">
-      <CardHeader className="items-center pb-0">
-        <CardTitle>Pie Chart</CardTitle>
-        <CardDescription>January - June 2024</CardDescription>
-      </CardHeader>
-      <CardContent className="flex-1 pb-0">
-        <ChartContainer
-          config={chartConfig}
-          className="mx-auto aspect-square max-h-[250px]"
-        >
-          <PieChart>
-            <ChartTooltip
-              cursor={false}
-              content={<ChartTooltipContent hideLabel />}
-            />
-            <Pie data={chartData} dataKey="visitors" nameKey="browser" />
-          </PieChart>
-        </ChartContainer>
-      </CardContent>
-      <CardFooter className="flex-col gap-2 text-sm">
-        <div className="flex items-center gap-2 leading-none font-medium">
-          Trending up by 5.2% this month <TrendingUp className="h-4 w-4" />
-        </div>
-        <div className="leading-none text-muted-foreground">
-          Showing total visitors for the last 6 months
-        </div>
-      </CardFooter>
-    </Card>
-  )
+export function ChartPie() {
+    return (
+        <Card className="flex flex-col bg-transparent">
+            <CardContent className="flex-1 pb-0">
+                <ChartContainer
+                    config={chartConfig}
+                    className="mx-auto aspect-square h-72"
+                >
+                    <PieChart>
+                        <ChartTooltip
+                            cursor={false}
+                            content={<ChartTooltipContent hideLabel />}
+                        />
+                        <Pie
+                            data={chartData}
+                            dataKey="value"
+                            nameKey="stock"
+                            stroke="0"
+                        />
+                    </PieChart>
+                </ChartContainer>
+            </CardContent>
+        </Card>
+    )
 }

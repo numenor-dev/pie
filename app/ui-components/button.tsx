@@ -47,13 +47,6 @@ export default function Button({
             whileHover="hover"
             whileTap="tap"
         >
-            <motion.div
-                className="absolute inset-0 bg-emerald-500 -z-10"
-                initial={{ scaleX: 0 }}
-                variants={{ hover: { scaleX: 1 }, tap: { scaleX: 1 } }}
-                transition={{ duration: 0.5, ease: 'easeInOut' }}
-                style={{ originX: 0 }}
-            />
             <span className="relative z-10">{children}</span>
         </motion.button>
     );

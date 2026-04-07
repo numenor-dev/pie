@@ -2,7 +2,7 @@
 
 import { motion } from 'motion/react';
 import Button from './ui-components/button';
-import PieChart from './ui-components/pie-chart';
+import { ChartPie } from './ui-components/pie-chart';
 
 const textVariants = {
   hidden: { opacity: 0, y: 40 },
@@ -15,8 +15,8 @@ const textVariants = {
 
 export default function Begin() {
   return (
-    <main className="flex flex-col mx-auto pt-16 md:pt-20">
-      <div className="bg-emerald-400 w-full shadow-lg py-5">
+    <main className="flex flex-col mx-auto pt-16 md:pt-7">
+      <div className="bg-stone-200/50 w-full py-5">
         <div className="max-w-7xl mx-auto px-10 md:py-16 py-8 flex flex-col md:flex-row items-center gap-12">
 
           {/* Text column */}
@@ -46,13 +46,13 @@ export default function Begin() {
             </motion.p>
           </div>
 
-          <PieChart />
+          <ChartPie />
 
         </div>
       </div>
 
       <motion.div
-        className="mx-auto mt-16 pb-28"
+        className="mx-auto mt-3 pb-28"
         initial={{ opacity: 0, y: 16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, delay: 0.3 }}
@@ -60,8 +60,8 @@ export default function Begin() {
         <Button
           href="/passion-inv"
           className="
-          px-8 py-2 text-xl cursor-pointer rounded-md font-semibold
-          border-2 bg-black border-black text-stone-200 hover:border-emerald-500
+          px-8 py-2 text-xl cursor-pointer rounded-3xl font-semibold
+          bg-stone-800 text-stone-200 hover:ring-2 hover:ring-emerald-400/50
           "
         >
           Begin

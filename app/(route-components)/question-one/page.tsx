@@ -55,6 +55,11 @@ export default function QuestionOne() {
             onSubmit={handleSubmit}
 
         >
+            <p
+                className="text-emerald-700 text-xs font-medium tracking-widest uppercase mb-4"
+            >
+                Step 2 of 3
+            </p>
             <h1 className="md:text-5xl text-4xl font-bold text-center mb-10 px-2">
                 What hobbies are you passionate about?
             </h1>
@@ -63,7 +68,7 @@ export default function QuestionOne() {
                     name="hobbies"
                     id="hobbies"
                     type="text"
-                    className="xl:max-w-7xl lg:max-w-4xl md:max-w-xl sm:max-w-sm max-w-xs
+                    className="xl:max-w-7xl lg:max-w-4xl md:max-w-xl sm:max-w-sm
                     rounded-md bg-slate-500/10 border border-slate-400/60 lg:w-[65em] md:w-[35em] w-[25em] h-10 text-center
                     text-base text-black focus:outline-2 focus:outline-emerald-400
                     "
