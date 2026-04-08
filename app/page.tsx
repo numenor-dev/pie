@@ -61,7 +61,7 @@ export default function Begin() {
           href="/passion-inv"
           className="
           px-8 py-2 text-xl cursor-pointer rounded-3xl font-semibold
-          bg-stone-800 text-stone-200 hover:ring-2 hover:ring-emerald-400/50
+          bg-stone-800 text-stone-200 hover:ring-2 hover:ring-emerald-600/50
           "
         >
           Begin

@@ -4,6 +4,7 @@ import { useQuestionStore } from '@/store/questiondata';
 import type { RefinedHobbies } from '@/store/questiondata';
 import { useRouter } from 'next/navigation';
 import { motion } from 'motion/react';
+import { textVariants } from '../lib/animations';
 import ButtonArrow from './buttonarrow';
 import toast from 'react-hot-toast';
 
@@ -26,8 +27,8 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
 
     const toggleSelect = (option: string) => {
         const updated = selected.includes(option)
-        ? selected.filter(s => s !== option) 
-        : [...selected, option];
+            ? selected.filter(s => s !== option)
+            : [...selected, option];
         setSelectedRefinedHobbies(updated);
     };
 
@@ -46,6 +47,15 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
 
     return (
         <div className="lg:max-w-7xl md:max-w-3xl max-w-xl flex flex-col mx-auto md:px-16 px-10 mt-32">
+            <motion.p
+                className="text-emerald-600 mx-auto text-xs font-medium tracking-widest uppercase mb-4"
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                custom={0}
+            >
+                Step 3 of 4
+            </motion.p>
             <h2 className="font-bold lg:text-6xl text-4xl mx-auto text-center">
                 Which of these areas interest you the most?
             </h2>
@@ -69,8 +79,8 @@ export default function SubCards({ refHobbies }: SubCardsProps) {
                                 relative group py-3 rounded-xl text-xl
                                 overflow-hidden border transition-colors duration-200
                                 ${isSelected
-                                    ? 'border-emerald-400 bg-emerald-400 text-black'
-                                    : 'border-emerald-500 hover:bg-slate-200/90'
+                                    ? 'border-emerald-500 bg-emerald-500/80 text-black'
+                                    : 'border-emerald-600 hover:bg-slate-200/90'
                                 }
                             `}
                         >

@@ -15,14 +15,14 @@ export default function Navigation() {
                     href="https://www.investopedia.com/articles/basics/11/3-s-simple-investing.asp"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm font-medium hover:text-emerald-500 transition-colors duration-200"
+                    className="text-sm font-medium hover:text-emerald-600 transition-colors duration-200"
                     aria-label="Investing 101"
                 >
                     Investing 101
                 </Link>
                 <Link
                     href="https://www.investopedia.com/ask/answers/032615/what-difference-between-covered-call-and-regular-call.asp"
-                    className="text-sm font-medium hover:text-emerald-500 transition-colors duration-200"
+                    className="text-sm font-medium hover:text-emerald-600 transition-colors duration-200"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Call Options"

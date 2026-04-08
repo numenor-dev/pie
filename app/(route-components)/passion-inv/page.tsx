@@ -8,7 +8,7 @@ import Image from 'next/image';
 export default function PassionInvesting() {
     return (
         <main className="flex flex-col pt-8">
-            
+
             {/* Full width banner */}
             <div className="w-screen relative left-1/2 -translate-x-1/2 bg-emerald-700 py-16 md:py-20">
                 <div className="flex items-start gap-12 lg:gap-16 lg:max-w-4xl md:max-w-2xl max-w-sm mx-auto px-6 md:px-0">
@@ -21,9 +21,8 @@ export default function PassionInvesting() {
                             animate="visible"
                             custom={0}
                         >
-                            Step 1 of 3
+                            Step 1 of 4
                         </motion.p>
-
                         <motion.h1
                             className="font-bold text-4xl lg:text-5xl text-white leading-tight mb-8"
                             variants={textVariants}
@@ -61,7 +60,8 @@ export default function PassionInvesting() {
                         </div>
                     </div>
 
-                    <div className="hidden md:flex shrink-0 bg-black/20 rounded-full p-6 mt-2">
+                    <div
+                        className="hidden md:flex shrink-0 bg-black/20 rounded-full p-6 mt-2">
                         <Image src="/path.svg" quality={100} width={160} height={160} alt="" />
                     </div>
 

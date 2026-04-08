@@ -61,7 +61,7 @@ export default function ButtonArrow({
         </div>
     );
 
-    const sharedClassName = "border-2 border-emerald-500 rounded-3xl py-2 px-7 cursor-pointer inline-flex";
+    const sharedClassName = "border-2 border-emerald-600 rounded-3xl py-2 px-7 cursor-pointer inline-flex";
 
     if (href) {
         return (

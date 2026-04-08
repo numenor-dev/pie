@@ -28,33 +28,34 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
     };
 
     const multipleCompanies = relatedCompanies.length > 1;
+    const navDelay = relatedCompanies.length * 0.15 + 0.35;
 
     return (
-        <div className="lg:max-w-7xl md:max-w-4xl max-w-xl mx-auto px-5">
+        <div className="flex flex-col mx-auto px-6 md:px-0 pb-32 mt-16 md:mt-24 max-w-5xl">
 
             {/* Title */}
             <motion.div
                 initial={{ opacity: 0, y: -16 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: 'easeOut' as const }}
-                className="text-center"
+                transition={{ duration: 0.6, ease: 'easeOut' }}
+                className="text-center mb-3"
             >
-                <h1 className="lg:text-5xl text-4xl font-bold">
+                <h1 className="text-4xl lg:text-5xl font-bold">
                     Potential Investments
                 </h1>
             </motion.div>
 
-             {/* Divider */}
+            {/* Divider */}
             <motion.div
                 initial={{ scaleX: 0, opacity: 0 }}
                 animate={{ scaleX: 1, opacity: 1 }}
                 transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
-                className="h-px md:w-140 w-56 md:mt-5 mt-3 mx-auto md:mb-16 mb-10 bg-linear-to-r from-transparent via-emerald-500 to-transparent"
+                className="h-px w-48 mx-auto mt-3 mb-12 md:mb-16 bg-linear-to-r from-transparent via-emerald-500 to-transparent"
             />
 
             {/* Cards */}
             <motion.div
-                className={`lg:px-0 sm:mb-28 mb-20 mx-auto gap-8 ${relatedCompanies.length <= 2
+                className={`gap-6 mb-12 ${relatedCompanies.length <= 2
                     ? 'flex flex-wrap justify-center'
                     : 'grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3'
                     }`}
@@ -72,19 +73,31 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                         animate="visible"
                         target="_blank"
                         rel="noopener noreferrer"
-                        whileHover={{
-                            scale: 1.03,
-                            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)"
-                        }}
-                        className={`bg-slate-100 rounded-lg shadow-xl py-6 cursor-pointer transition-shadow ${relatedCompanies.length <= 2 ? 'w-96' : ''
-                            }`}
+                        whileHover={{ scale: 1.02 }}
+                        className={`flex flex-col bg-stone-100 border border-stone-300 rounded-xl
+                            px-5 py-6 cursor-pointer transition-shadow hover:shadow-md
+                            ${relatedCompanies.length <= 2 ? 'w-full max-w-sm' : ''}
+                        `}
                     >
-                        <h3 className="text-4xl font-bold text-black mb-2 wrap-break-word px-3">{c.name}</h3>
-                        <p className="text-base font-mono text-sky-500 font-semibold mb-3 wrap-break-word px-3">Stock symbol: {c.ticker}</p>
-                        <p className="text-base font-mono text-sky-500 font-semibold mb-3 wrap-break-word px-3">Website: {c.website}</p>
+                        {/* Ticker badge */}
+                        <span className="self-start text-xs font-mono font-semibold tracking-widest
+                            text-emerald-700 bg-emerald-100 px-2 py-1 rounded mb-3">
+                            {c.ticker}
+                        </span>
+
+                        <h3 className="text-2xl font-bold text-stone-900 mb-3 wrap-break-word">
+                            {c.name}
+                        </h3>
+
                         {c.description && (
-                            <p className="text-stone-900 font-noto text-lg leading-relaxed wrap-break-word px-3">{c.description}</p>
+                            <p className="text-stone-600 text-base leading-relaxed flex-1">
+                                {c.description}
+                            </p>
                         )}
+
+                        <span className="mt-4 text-sm font-medium text-emerald-700">
+                            Visit site →
+                        </span>
                     </motion.a>
                 ))}
             </motion.div>
@@ -94,35 +107,37 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: relatedCompanies.length * 0.15 + 0.2 }}
-                className="relative rounded-xl border border-stone-900 bg-sky-900/10 px-6 py-5 mb-3 md:max-w-4xl max-w-xl mx-auto"
+                className="rounded-xl border border-stone-200 bg-stone-50 px-6 py-5 mb-12"
             >
-                <p className="text-sm font-mono font-bold text-amber-600 uppercase tracking-widest mb-2">
+                <p className="text-xs font-mono font-bold text-amber-600 uppercase tracking-widest mb-2">
                     Disclaimer
                 </p>
-                <span className="lg:text-xl md:text-lg md:leading-8 text-base text-left leading-7 text-black">
-                    {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'} might be worth exploring further regarding passion investing and/or value investing. As a reminder, this is not financial advice. Remember to conduct your own research before making any investment decisions. Just a friendly slice of advice from P.I.E.`}
-                </span>
+                <p className="text-base leading-7 text-stone-700">
+                    {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'} might be worth exploring further regarding passion and value investing. This is not financial advice — conduct your own research before making any investment decisions. Just a friendly slice of advice from P.I.E.`}
+                </p>
             </motion.div>
 
             {/* Nav buttons */}
             <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: relatedCompanies.length * 0.15 + 0.35 }}
-                className="flex flex-col items-center pb-40 mt-12 space-y-12"
+                transition={{ duration: 0.6, delay: navDelay }}
+                className="flex flex-col items-center gap-6"
             >
-                <ButtonArrow
-                    direction="back"
-                    href="/value-inv"
-                    text={"Back"}
-                />
                 <Button
-                     className="relative px-8 py-3 text-xl cursor-pointer rounded-md font-semibold border-2 bg-black border-black text-stone-200 hover:border-emerald-500 overflow-hidden"
+                    className="px-10 py-3 text-lg cursor-pointer rounded-3xl font-semibold
+                        bg-stone-800 text-stone-200 hover:ring-2 hover:ring-emerald-600/50"
                     href="/question-one"
                 >
                     Explore More
                 </Button>
+                <ButtonArrow
+                    direction="back"
+                    href="/value-inv"
+                    text="Back"
+                />
             </motion.div>
+
         </div>
     );
 }

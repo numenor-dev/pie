@@ -21,7 +21,7 @@ export default function ValueInvesting() {
                             animate="visible"
                             custom={0}
                         >
-                            Step 3 of 3
+                            Step 4 of 4
                         </motion.p>
 
                         <motion.h1

@@ -5,13 +5,13 @@ import { Pie, PieChart } from "recharts"
 import {
     Card,
     CardContent,
-} from "@/components/ui/card"
+} from "@/app/ui-components/card"
 import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
     type ChartConfig,
-} from "@/components/ui/chart"
+} from "@/app/ui-components/chart"
 
 export const description = "A pie chart with no separator"
 

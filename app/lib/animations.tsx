@@ -1,6 +1,6 @@
 
 export const textVariants = {
-    hidden: { opacity: 0, y: 40 },
+    hidden: { opacity: 0.001, y: 40 },
     visible: (index: number) => ({
         opacity: 1,
         y: 0,

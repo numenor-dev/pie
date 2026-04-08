@@ -27,7 +27,7 @@ export default function HomeButton() {
                 ref={ref}
                 onHoverStart={() => setHovered(true)}
                 onHoverEnd={() => setHovered(false)}
-                className="inline-flex items-center gap-x-2 mt-2 sm:ml-0 ml-10 cursor-pointer hover:text-emerald-400 transition-colors duration-200"
+                className="inline-flex items-center gap-x-2 mt-2 sm:ml-0 ml-10 cursor-pointer hover:text-emerald-600 transition-colors duration-200"
             >
                 <svg
                     width="30"
