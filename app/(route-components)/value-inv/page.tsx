@@ -10,12 +10,12 @@ export default function ValueInvesting() {
         <main className="flex flex-col pt-8">
 
             {/* Full width banner */}
-            <div className="w-screen relative left-1/2 -translate-x-1/2 bg-emerald-700 py-16 md:py-20">
+            <div className="w-screen relative left-1/2 -translate-x-1/2 bg-stone-200/40 py-16 md:py-20">
                 <div className="flex items-start gap-12 lg:gap-16 lg:max-w-4xl md:max-w-2xl max-w-sm mx-auto px-6 md:px-0">
 
                     <div className="flex-1">
                         <motion.p
-                            className="text-emerald-300 text-xs font-medium tracking-widest uppercase mb-4"
+                            className="text-xs text-emerald-600 font-medium tracking-widest uppercase mb-4"
                             variants={textVariants}
                             initial="hidden"
                             animate="visible"
@@ -25,7 +25,7 @@ export default function ValueInvesting() {
                         </motion.p>
 
                         <motion.h1
-                            className="font-bold text-4xl lg:text-5xl text-white leading-tight mb-8"
+                            className="font-bold text-4xl lg:text-5xl leading-tight mb-8"
                             variants={textVariants}
                             initial="hidden"
                             animate="visible"
@@ -34,7 +34,7 @@ export default function ValueInvesting() {
                             What is Value Investing?
                         </motion.h1>
 
-                        <div className="text-emerald-100 text-base lg:text-lg leading-relaxed space-y-5">
+                        <div className="text-base lg:text-lg leading-relaxed space-y-5">
                             <motion.p
                                 variants={textVariants}
                                 initial="hidden"
@@ -65,8 +65,8 @@ export default function ValueInvesting() {
                         </div>
                     </div>
 
-                    <div className="hidden md:flex shrink-0 bg-black/20 rounded-full p-6 mt-2">
-                        <Image src="/growth.svg" quality={100} width={160} height={160} alt="" />
+                    <div className="hidden md:flex shrink-0 bg-emerald-700/70 rounded-full p-6 mt-2">
+                        <Image src="/growth.svg" width={160} height={160} alt="" />
                     </div>
 
                 </div>

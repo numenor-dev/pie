@@ -71,7 +71,7 @@ export default function MobileNavigation() {
             </button>
             <div className="md:hidden flex-1 flex justify-center pt-2 pr-3">
                 <Link href="/">
-                    <Image src="/pie.svg" quality={100} width={33} height={33} alt={' '} />
+                    <Image src="/pie.svg" width={33} height={33} alt={' '} />
                 </Link>
             </div>
 

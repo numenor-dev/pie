@@ -16,7 +16,7 @@ const textVariants = {
 export default function Begin() {
   return (
     <main className="flex flex-col mx-auto pt-16 md:pt-7">
-      <div className="bg-stone-200/50 w-full py-5">
+      <div className="bg-stone-200/40 w-full py-5">
         <div className="max-w-7xl mx-auto px-10 md:py-16 py-8 flex flex-col md:flex-row items-center gap-12">
 
           {/* Text column */}
