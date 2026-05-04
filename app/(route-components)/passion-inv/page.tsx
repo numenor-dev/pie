@@ -41,10 +41,10 @@ export default function PassionInvesting() {
                                 custom={2}
                             >
                                 Passion investing focuses on investing in companies
-                                or industries that relate to your interests. By investing
-                                in areas you care about, it becomes more engaging —
-                                motivating you to stay informed and make better
-                                long-term decisions.
+                                or industries that have a connection to your personality.
+                                By investing in areas you feel passionate about, you are
+                                more likely to stay engaged and informed as well as feel a
+                                greater reward from your investment gains.
                             </motion.p>
                             <motion.p
                                 variants={textVariants}

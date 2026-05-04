@@ -43,10 +43,9 @@ export default function ValueInvesting() {
                             >
                                 Value investing involves finding stocks trading below their
                                 book value (total assets minus liabilities) or intrinsic value
-                                (the true worth based on financials and growth potential). The
-                                market can overreact to news, creating price movements that
-                                don&apos;t reflect a company&apos;s long-term fundamentals —
-                                and that gap is the opportunity.
+                                (the true worth based on financials and growth potential). Most
+                                often, the market behaves irrationally, causing some stocks to be
+                                undervalued. This is where value investors see opportunity.
                             </motion.p>
                             <motion.p
                                 variants={textVariants}
@@ -59,8 +58,8 @@ export default function ValueInvesting() {
                                 to its assets and acquired a controlling stake at $7.50 per
                                 share. He transformed it into a holding company and applied
                                 the same logic to many other undervalued businesses. Today,
-                                that share trades at over $700,000 — an extreme case, but one
-                                that illustrates the potential when value investing is done right.
+                                it trades at over $700,000 per share. This is an extreme case,
+                                but it illustrates the potential when value investing is done right.
                             </motion.p>
                         </div>
                     </div>
