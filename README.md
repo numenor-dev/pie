@@ -1,5 +1,7 @@
 # PIE - Personalized Investment Engine
 
+Production URL: slice.vercel.app
+
 An intelligent learning tool that provides investment suggestions (not financial advice) based on what you like to do in your free time!
 
 ## Features
@@ -21,7 +23,7 @@ An intelligent learning tool that provides investment suggestions (not financial
 - **Form Handling**: [Conform](https://conform.guide/) with [Zod](https://zod.dev/) validation
 - **State Management**: [Zustand](https://github.com/pmndrs/zustand) 5.0.9
 - **Notifications**: [React Hot Toast](https://react-hot-toast.com/) 2.6.0
-- **Animations**: [Motion](https://motion.dev/)
+- **Animations**: [Motion](https://motion.dev/) 12.23.26
 - **Language**: TypeScript 5
 - **Linting**: ESLint
 
