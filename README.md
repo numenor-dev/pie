@@ -1,115 +1,80 @@
 # PIE - Personalized Investment Engine
 
-Production URL: slice.vercel.app
+**Production URL:** [slice.vercel.app](https://slice.vercel.app)
 
-An intelligent learning tool that provides investment suggestions (not financial advice) based on what you like to do in your free time!
+An AI-powered investment discovery tool that uses natural language processing to map personal hobbies to potential stock market opportunities. Built with a focus on high-fidelity motion and modern React patterns.
+
+# How It Works
+PIE translates user-provided interests through the Anthropic Claude API. By utilizing custom-tuned prompts, the engine maps qualitative data (hobbies/interests) to quantitative market data, delivering tailored investment suggestions that may compliment passion and value investment strategies through a high-performance React frontend.
 
 ## Features
 
-- **AI-Powered Recommendations**: Leverages Claude AI to provide intelligent, personalized investment suggestions
-- **Form Validation**: Robust form handling with Conform and Zod for reliable data validation
-- **Real-Time Notifications**: Toast notifications via React Hot Toast for user feedback
-- **State Management**: Efficient state management with Zustand
-- **Responsive Design**: Modern, mobile-friendly interface built with Tailwind CSS
-- **Smooth Animations**: Engaging UI interactions with Motion animations
-- **Type-Safe Development**: Full TypeScript support for code reliability
+- **AI-Powered Recommendations**: Leverages Claude AI to provide intelligent, personalized investment suggestions.
+- **Form Validation**: Robust form handling with Conform and Zod for reliable data validation.
+- **Real-Time Notifications**: Toast notifications via React Hot Toast for immediate user feedback.
+- **State Management**: Efficient, lightweight global state management with Zustand.
+- **Responsive Design**: Modern, mobile-first interface built with Tailwind CSS 4.
+- **Smooth Animations**: Engaging UI interactions and conversational transitions using Motion.
+- **Type-Safe Development**: End-to-end TypeScript support for enhanced code reliability.
 
 ## Tech Stack
 
-- **Framework**: [Next.js](https://nextjs.org/) 16.0.10
-- **UI Library**: [React](https://react.dev/) 19.2.0
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) 4
-- **AI Integration**: [Anthropic Claude SDK](https://docs.anthropic.com/) 0.71.2
-- **Form Handling**: [Conform](https://conform.guide/) with [Zod](https://zod.dev/) validation
-- **State Management**: [Zustand](https://github.com/pmndrs/zustand) 5.0.9
-- **Notifications**: [React Hot Toast](https://react-hot-toast.com/) 2.6.0
-- **Animations**: [Motion](https://motion.dev/) 12.23.26
-- **Language**: TypeScript 5
-- **Linting**: ESLint
+- **Framework**: [Next.js](https://nextjs.org/) (App Router)
+- **UI Library**: [React](https://react.dev/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **AI Integration**: [Anthropic Claude SDK](https://docs.anthropic.com/)
+- **Form Handling**: [Conform](https://conform.guide/) & [Zod](https://zod.dev/)
+- **State Management**: [Zustand](https://github.com/pmndrs/zustand)
+- **Animations**: [Motion](https://motion.dev/)
+- **Language**: TypeScript
+
+## Key Engineering Features
+
+- **Structured Prompt Engineering**: Utilizes a meticulously crafted system prompt to ensure the LLM returns consistent, valid stock symbols and rationale based on unstructured user input.
+- **Responsive Data Flow**: Architected the interaction between the Anthropic API and the frontend to provide a seamless, low-latency user experience during the analysis phase.
+- **Type-Safe API Responses**: Defined rigorous TypeScript interfaces for AI-generated content to ensure UI stability and prevent runtime errors during data rendering.
 
 ## Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ and yarn installed
-- Anthropic API key for Claude AI integration
+- Node.js 18+ 
+- Yarn package manager
+- Anthropic API key (Claude AI)
 
 ### Installation
 
-1. Clone the repository:
-```bash
-git clone https://github.com/numenor-dev/pie.git
-cd pie
-```
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/numenor-dev/pie.git](https://github.com/numenor-dev/pie.git)
+   cd pie
 
-2. Install dependencies:
-```bash
-yarn install
-```
+2. **Install dependencies** 
+   yarn install
 
-3. Set up environment variables:
-```bash
-cp .env.example .env.local
-```
+3. **Set up environment variables**
+   ANTHROPIC_API_KEY=your_api_key_here
 
-Add your Anthropic API key to `.env.local`:
-```
-ANTHROPIC_API_KEY=your_api_key_here
-```
+4. **Run the development server**
+   yarn next dev
+   Open http://localhost:3000 in your browser to see the application.
 
-### Development
-
-Start the development server:
-```bash
-yarn next dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
-
-### Production
-
-Build for production:
-```bash
-yarn next build
-yarn start
-```
 
 ## Scripts
+**yarn next dev** - Start development server with hot reload
 
-- `yarn next dev` - Start development server with hot reload
-- `yarn next build` - Build the application for production
-- `yarn start` - Start the production server
-- `yarn lint` - Run ESLint to check code quality
+**yarn next build** - Build the application for production
+
+**yarn start** - Start the production server
+
+**yarn lint** - Run ESLint to check code quality
 
 ## Project Structure
-
-```
 pie/
-├── app/                    # Next.js app directory
-├── components/             # React components
-├── lib/                    # Utility functions and helpers
-├── public/                 # Static assets
-├── .env.local             # Environment variables (create from .env.example)
+├── app/                    # Next.js App Router (Pages & API Routes)
+├── components/             # Reusable UI components
+├── lib/                    # Utility functions, schemas, and AI logic
+├── public/                 # Static assets (images, icons)
+├── .env.local              # Local environment variables (gitignored)
 ├── package.json
 └── tsconfig.json
-```
-
-## Environment Variables
-
-- `ANTHROPIC_API_KEY` - Your Anthropic API key for Claude AI access
-
-## How It Works
-
-PIE uses the Anthropic Claude API to analyze user financial information and provide personalized investment recommendations. Users fill out forms detailing their investment goals, risk tolerance, and financial situation, which are then processed by Claude to generate tailored advice.
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-## License
-
-This project is private. For licensing information, please contact the repository maintainer.
-
-## Questions?
-
-If you have any questions or need help, please open an issue on the repository.
