@@ -64,8 +64,8 @@ export default function ValueInvesting() {
                         </div>
                     </div>
 
-                    <div className="hidden md:flex shrink-0 bg-emerald-700/70 rounded-full p-6 mt-2">
-                        <Image src="/growth.svg" width={160} height={160} alt="" />
+                    <div className="hidden md:flex shrink-0 bg-emerald-700/70 rounded-full p-6 mt-40 w-46 lg:w-auto lg:mt-36">
+                        <Image src="/growth.svg" width={180} height={180} alt="" />
                     </div>
 
                 </div>

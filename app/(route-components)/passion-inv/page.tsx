@@ -61,8 +61,8 @@ export default function PassionInvesting() {
                     </div>
 
                     <div
-                        className="hidden md:flex shrink-0 bg-emerald-700/70 rounded-full p-6 mt-2">
-                        <Image src="/path.svg" width={160} height={160} alt="" />
+                        className="hidden md:flex shrink-0 bg-emerald-700/70 rounded-full p-6 mt-40 w-46 lg:w-auto lg:mt-20">
+                        <Image src="/path.svg" width={170} height={170} alt="" />
                     </div>
 
                 </div>
