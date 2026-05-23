@@ -29,7 +29,7 @@ PIE translates user-provided interests through the Anthropic Claude API. By util
 
 ## Key Engineering Features
 
-* __Structured Prompt Engineering:__ Utilizes a meticulously crafted system prompt to ensure the LLM returns consistent, valid stock symbols and rationale based on unstructured user input.
+* __Structured Prompt Engineering:__ Multi-stage prompt pipeline to ensure the LLM returns consistent, valid stock suggestions and rationale based on unstructured user input.
 * __Responsive Data Flow:__ Architected the interaction between the Anthropic API and the frontend to provide a seamless, low-latency user experience during the analysis phase.
 * __Type-Safe API Responses:__ Defined rigorous TypeScript interfaces for AI-generated content to ensure UI stability and prevent runtime errors during data rendering.
 
