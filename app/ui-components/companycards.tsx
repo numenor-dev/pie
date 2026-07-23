@@ -113,7 +113,8 @@ export default function CompanyCards({ relatedCompanies }: CompanyInfoProps) {
                     Disclaimer
                 </p>
                 <p className="text-base leading-7 text-stone-700">
-                    {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'} might be worth exploring further regarding passion and value investing. This is not financial advice — conduct your own research before making any investment decisions. Just a friendly slice of advice from P.I.E.`}
+                    {`Based on your answers, ${multipleCompanies ? 'these companies' : 'this company'} might be worth exploring further regarding passion and value investing.
+                    This is not financial advice. Please conduct your own research before making any investment decisions. Just a friendly slice of advice from P.I.E.`}
                 </p>
             </motion.div>
 

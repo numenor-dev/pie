@@ -52,7 +52,7 @@ export default function QuestionOne() {
 
     return (
         <form
-            className="flex flex-col items-center mx-auto mt-24 md:mt-28 px-6 md:px-0 pb-24"
+            className="flex flex-col gap-y-7 md:gap-y-5 items-center mx-auto mt-24 md:mt-28 px-6 md:px-0 pb-24"
             onSubmit={handleSubmit}
         >
             <motion.p
@@ -72,7 +72,7 @@ export default function QuestionOne() {
                 name="hobbies"
                 id="hobbies"
                 type="text"
-                className="w-full max-w-xl h-10 rounded-md bg-slate-500/10 border border-slate-400/60
+                className="w-full max-w-3xl h-10 rounded-md bg-slate-500/10 border border-slate-400/60
                 text-base text-center text-black focus:outline-2 focus:outline-emerald-400"
                 formNoValidate
                 placeholder="I enjoy surfing, hiking, and gaming"
@@ -80,7 +80,7 @@ export default function QuestionOne() {
             />
 
             {/* Nav buttons */}
-            <div className="w-full max-w-xl flex justify-between mt-16">
+            <div className="w-full max-w-xl flex justify-between mt-20">
                 <ButtonArrow
                     type="button"
                     direction="back"
